@@ -3,255 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O'zbekiston Temir Yo'llari</title>
+    <title>Createx Construction</title>
     <style>
-        /* Общие стили */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
-        :root {
-            --primary-color: #1A3E72;
-            --white: #fff;
-            --text-color: #333;
-        }
-        
-        body {
-            color: var(--text-color);
-            padding-top: 60px; /* Отступ для фиксированного хедера */
-        }
-        
-        /* Стили для шапки */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 15px 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header__container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--white);
-        }
-        
-        /* Бургер-меню */
-        .burger-menu {
-            display: none; /* По умолчанию скрыто на десктопе */
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        .burger-line {
-            width: 100%;
-            height: 3px;
-            background-color: var(--white);
-            transition: all 0.3s ease;
-        }
-        
-        /* Мобильное меню */
-        .mobile-menu {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            z-index: 999;
-        }
-        
-        .mobile-menu.active {
-            max-height: 500px; /* Достаточно для всего меню */
-        }
-        
-        .mobile-menu__list {
-            padding: 15px;
-        }
-        
-        .mobile-menu__item {
-            margin-bottom: 15px;
-        }
-        
-        .mobile-menu__link {
-            color: var(--text-color);
-            font-size: 16px;
-            display: block;
-            padding: 8px 0;
-        }
-        
-        .mobile-menu__sublist {
-            padding-left: 15px;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .mobile-menu__item.active .mobile-menu__sublist {
-            display: block;
-        }
-        
-        .search-box {
-            padding: 15px;
-            border-top: 1px solid #eee;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        /* Десктопное меню (скрыто на мобильных) */
-        .desktop-menu {
-            display: flex;
-        }
-        
-        /* Медиа-запрос для мобильной версии */
+        /* Стили для мобильного меню */
         @media (max-width: 768px) {
-            .burger-menu {
-                display: flex;
+            .header {
+                position: relative;
+                z-index: 1000;
             }
             
-            .desktop-menu {
+            .nav {
                 display: none;
             }
             
-            .mobile-menu {
+            .mobile-menu-btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+            
+            .mobile-menu-btn span {
                 display: block;
+                width: 100%;
+                height: 3px;
+                background: #fff;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .mobile-menu.active {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .mobile-menu__list {
+                padding: 15px;
+            }
+            
+            .mobile-menu__item {
+                margin-bottom: 15px;
+            }
+            
+            .mobile-menu__link {
+                color: #333;
+                font-size: 16px;
+                display: block;
+                padding: 8px 0;
+            }
+            
+            /* Анимация бургера в крестик */
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+            
+            /* Скрываем десктопные элементы на мобильных */
+            .desktop-only {
+                display: none !important;
             }
         }
-        
-        /* Контент для примера */
-        .content {
-            padding: 20px;
-            height: 2000px;
+
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none !important;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Шапка сайта -->
+    <!-- Шапка сайта (существующая) -->
     <header class="header">
-        <div class="header__container">
-            <div class="logo">O'ZBEKISTON TEMIR YO'LLARI</div>
-            
-            <!-- Бургер-меню -->
-            <div class="burger-menu" id="burgerMenu">
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-            </div>
-            
-            <!-- Десктопное меню (скрыто на мобильных) -->
-            <nav class="desktop-menu">
-                <!-- Здесь может быть десктопная навигация -->
-            </nav>
-        </div>
-        
-        <!-- Мобильное меню -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu__list">
-                <div class="mobile-menu__item active">
-                    <a href="#" class="mobile-menu__link">Asosiy</a>
-                    <ul class="mobile-menu__sublist">
-                        <li><a href="#" class="mobile-menu__link">Biz haqimizda</a></li>
-                        <li><a href="#" class="mobile-menu__link">O'zbekistonda temir yo'llari tarixi</a></li>
+        <div class="container">
+            <div class="header__inner">
+                <a href="/" class="logo">Createx</a>
+                
+                <!-- Кнопка мобильного меню -->
+                <button class="mobile-menu-btn mobile-only" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Существующая навигация (скроется на мобильных) -->
+                <nav class="nav desktop-only">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#" class="nav__link">About Us</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Services</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">News</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Contacts</a></li>
+                    </ul>
+                    
+                    <div class="contact-info desktop-only">
+                        <div class="contact-item">
+                            <div class="contact-icon icon-phone"></div>
+                            <div class="contact-text">
+                                <span>Call us</span>
+                                <strong>(405) 555-0128</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon icon-email"></div>
+                            <div class="contact-text">
+                                <span>Talk to us</span>
+                                <strong>hello@createx.com</strong>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                
+                <!-- Мобильное меню -->
+                <div class="mobile-menu mobile-only" id="mobileMenu">
+                    <ul class="mobile-menu__list">
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">About Us</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Services</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Work</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">News</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Contacts</a></li>
+                        
+                        <!-- Контакты в мобильном меню -->
+                        <li class="mobile-menu__item">
+                            <div class="contact-item">
+                                <div class="contact-icon icon-phone"></div>
+                                <div class="contact-text">
+                                    <span>Call us</span>
+                                    <strong>(405) 555-0128</strong>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="mobile-menu__item">
+                            <div class="contact-item">
+                                <div class="contact-icon icon-email"></div>
+                                <div class="contact-text">
+                                    <span>Talk to us</span>
+                                    <strong>hello@createx.com</strong>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                
-                <div class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">Bilet izlash</a>
-                </div>
-                
-                <div class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">O'zbekistonda temir yo'llari tarixi</a>
-                </div>
-                
-                <div class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">Orenburadan Toshkentatacha temir yo'lni qurish</a>
-                </div>
-                
-                <div class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">Bizning telegram bot</a>
-                </div>
-                
-                <div class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">Ir yo'l komissiyasi</a>
-                </div>
-                
-                <div class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">Stratanik fahmlarna</a>
-                </div>
-            </div>
-            
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Saytda qidirish...">
             </div>
         </div>
     </header>
 
-    <!-- Основной контент -->
-    <div class="content">
-        <h1>Asosiy kontent</h1>
-        <p>Bu yerda saytning asosiy kontenti joylashadi</p>
-    </div>
-
     <script>
+        // Скрипт для мобильного меню
         document.addEventListener('DOMContentLoaded', function() {
-            const burgerMenu = document.getElementById('burgerMenu');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            const menuItems = document.querySelectorAll('.mobile-menu__item');
             
-            // Открытие/закрытие меню
-            burgerMenu.addEventListener('click', function() {
+            mobileMenuBtn.addEventListener('click', function() {
                 this.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
                 
-                // Анимация бургер-иконки
-                if (this.classList.contains('active')) {
-                    this.querySelectorAll('.burger-line')[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
-                    this.querySelectorAll('.burger-line')[1].style.opacity = '0';
-                    this.querySelectorAll('.burger-line')[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
-                } else {
-                    this.querySelectorAll('.burger-line')[0].style.transform = 'rotate(0) translate(0)';
-                    this.querySelectorAll('.burger-line')[1].style.opacity = '1';
-                    this.querySelectorAll('.burger-line')[2].style.transform = 'rotate(0) translate(0)';
-                }
-            });
-            
-            // Раскрытие подменю
-            menuItems.forEach(item => {
-                if (item.querySelector('.mobile-menu__sublist')) {
-                    item.addEventListener('click', function(e) {
-                        if (e.target.classList.contains('mobile-menu__link') && !e.target.parentElement.classList.contains('mobile-menu__sublist')) {
-                            e.preventDefault();
-                            this.classList.toggle('active');
-                        }
-                    });
-                }
+                // Блокировка скролла при открытом меню
+                document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
             });
         });
     </script>
