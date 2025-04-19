@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Createx Construction</title>
-    <!-- Подключаем Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <title>O'zbekiston Temir Yo'llari</title>
     <style>
         /* Общие стили */
         * {
@@ -16,486 +14,245 @@
         }
         
         :root {
-            --accent-color: #FF5A30;
-            --text-color: #1E212C;
-            --light-text: #787A80;
+            --primary-color: #1A3E72;
             --white: #fff;
+            --text-color: #333;
         }
         
         body {
             color: var(--text-color);
+            padding-top: 60px; /* Отступ для фиксированного хедера */
         }
         
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        ul {
-            list-style: none;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1230px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
         /* Стили для шапки */
         .header {
-            padding: 20px 0;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .header__inner {
+        .header__container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-        
-        .nav {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav__list {
-            display: flex;
-            margin-right: 40px;
-        }
-        
-        .nav__item {
-            margin-right: 30px;
-            position: relative;
-        }
-        
-        .nav__item:last-child {
-            margin-right: 0;
-        }
-        
-        .nav__link {
-            font-weight: 600;
-            font-size: 16px;
-            color: var(--text-color);
-            transition: color 0.3s ease;
-            padding: 10px 0;
-            display: inline-block;
-        }
-        
-        .nav__link:hover {
-            color: var(--accent-color);
-        }
-        
-        .contact-info {
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-right: 30px;
-        }
-        
-        .contact-item:last-child {
-            margin-right: 0;
-        }
-        
-        .contact-icon {
-            margin-right: 10px;
-            width: 20px;
-            height: 20px;
-        }
-        
-        .contact-text {
-            font-size: 14px;
-            color: var(--light-text);
-        }
-        
-        .contact-text strong {
-            font-weight: 700;
-            color: var(--text-color);
-            display: block;
-        }
-        
-        /* Иконки для контактов */
-        .icon-phone {
-            background-color: var(--accent-color);
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 15.5c-1.2 0-2.5-.2-3.6-.6h-.3c-.3 0-.5.1-.7.3l-2.2 2.2c-2.8-1.5-5.2-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.4-.5-3.6 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z'/%3E%3C/svg%3E") no-repeat center;
-        }
-        
-        .icon-email {
-            background-color: var(--accent-color);
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z'/%3E%3C/svg%3E") no-repeat center;
-        }
-
-        /* Стили для героя */
-        .hero {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-            color: var(--white);
-            margin-top: 80px; /* Учитываем высоту шапки */
-        }
-        
-        .hero-slider {
-            height: 100%;
-        }
-        
-        .hero-slide {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background-size: cover;
-            background-position: center;
-            background-color: #1E212C;
-        }
-        
-        .hero__content {
-            max-width: 600px;
-        }
-        
-        .main-title {
-            font-size: 72px;
-            font-weight: 900;
-            margin-bottom: 24px;
-            line-height: 1.2;
-            text-transform: uppercase;
-        }
-        
-        .main-title span {
-            color: var(--accent-color);
-        }
-        
-        .main-descr {
-            font-size: 20px;
-            line-height: 1.5;
-            margin-bottom: 60px;
-            opacity: 0.9;
-        }
-        
-        .hero__btns {
-            display: flex;
-            gap: 24px;
-        }
-        
-        .btn {
-            padding: 15px 40px;
-            border: none;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-        
-        .btn--fill {
-            background-color: var(--accent-color);
             color: var(--white);
         }
         
-        .btn--fill:hover {
-            background-color: #fc3a0e;
-        }
-        
-        .btn--stroke {
-            background-color: transparent;
-            border: 1px solid currentColor;
-            color: var(--white);
-        }
-        
-        .btn--stroke:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Навигация слайдера */
-        .slider-nav__btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            color: var(--white);
-        }
-        
-        .slider-nav__btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        .slider-nav__btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .hero__prev {
-            left: 30px;
-        }
-        
-        .hero__next {
-            right: 30px;
-        }
-        
-        .swiper-pagination {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-        
-        .swiper-pagination-bullet {
+        /* Бургер-меню */
+        .burger-menu {
+            display: none; /* По умолчанию скрыто на десктопе */
+            flex-direction: column;
+            justify-content: space-between;
             width: 30px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.5);
+            height: 21px;
             cursor: pointer;
-            border-radius: 3px;
+            z-index: 1001;
+        }
+        
+        .burger-line {
+            width: 100%;
+            height: 3px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        /* Мобильное меню */
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            max-height: 0;
             overflow: hidden;
+            transition: max-height 0.3s ease;
+            z-index: 999;
         }
         
-        .swiper-pagination-bullet-active {
-            background: var(--accent-color);
+        .mobile-menu.active {
+            max-height: 500px; /* Достаточно для всего меню */
         }
         
-        .hero__bar {
+        .mobile-menu__list {
+            padding: 15px;
+        }
+        
+        .mobile-menu__item {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-menu__link {
+            color: var(--text-color);
+            font-size: 16px;
             display: block;
-            height: 100%;
-            width: 0%;
-            background: var(--white);
+            padding: 8px 0;
         }
         
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            border: 0;
-            clip: rect(0 0 0 0);
+        .mobile-menu__sublist {
+            padding-left: 15px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .mobile-menu__item.active .mobile-menu__sublist {
+            display: block;
+        }
+        
+        .search-box {
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Десктопное меню (скрыто на мобильных) */
+        .desktop-menu {
+            display: flex;
+        }
+        
+        /* Медиа-запрос для мобильной версии */
+        @media (max-width: 768px) {
+            .burger-menu {
+                display: flex;
+            }
+            
+            .desktop-menu {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+        
+        /* Контент для примера */
+        .content {
+            padding: 20px;
+            height: 2000px;
         }
     </style>
 </head>
 <body>
     <!-- Шапка сайта -->
     <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a href="/" class="logo">Createx</a>
-                
-                <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#" class="nav__link">About Us</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Services</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">News</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Contacts</a></li>
+        <div class="header__container">
+            <div class="logo">O'ZBEKISTON TEMIR YO'LLARI</div>
+            
+            <!-- Бургер-меню -->
+            <div class="burger-menu" id="burgerMenu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </div>
+            
+            <!-- Десктопное меню (скрыто на мобильных) -->
+            <nav class="desktop-menu">
+                <!-- Здесь может быть десктопная навигация -->
+            </nav>
+        </div>
+        
+        <!-- Мобильное меню -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu__list">
+                <div class="mobile-menu__item active">
+                    <a href="#" class="mobile-menu__link">Asosiy</a>
+                    <ul class="mobile-menu__sublist">
+                        <li><a href="#" class="mobile-menu__link">Biz haqimizda</a></li>
+                        <li><a href="#" class="mobile-menu__link">O'zbekistonda temir yo'llari tarixi</a></li>
                     </ul>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon icon-phone"></div>
-                            <div class="contact-text">
-                                <span>Call us</span>
-                                <strong>(405) 555-0128</strong>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon icon-email"></div>
-                            <div class="contact-text">
-                                <span>Talk to us</span>
-                                <strong>hello@createx.com</strong>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+                </div>
+                
+                <div class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">Bilet izlash</a>
+                </div>
+                
+                <div class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">O'zbekistonda temir yo'llari tarixi</a>
+                </div>
+                
+                <div class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">Orenburadan Toshkentatacha temir yo'lni qurish</a>
+                </div>
+                
+                <div class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">Bizning telegram bot</a>
+                </div>
+                
+                <div class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">Ir yo'l komissiyasi</a>
+                </div>
+                
+                <div class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">Stratanik fahmlarna</a>
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Saytda qidirish...">
             </div>
         </div>
     </header>
 
-    <!-- Слайдер -->
-    <section class="hero">
-        <h1 class="visually-hidden">Строительное бюро Createx</h1>
-        <div class="hero-slider swiper">
-            <!-- Кнопки навигации -->
-            <button class="slider-nav__btn hero__prev" aria-label="Предыдущий слайд">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 18L8 12L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <button class="slider-nav__btn hero__next" aria-label="Следующий слайд">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 18L16 12L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+    <!-- Основной контент -->
+    <div class="content">
+        <h1>Asosiy kontent</h1>
+        <p>Bu yerda saytning asosiy kontenti joylashadi</p>
+    </div>
 
-            <!-- Пагинация -->
-            <div class="swiper-pagination hero__pag"></div>
-
-            <!-- Слайды -->
-            <div class="swiper-wrapper">
-                <!-- Слайд 1 -->
-                <div class="swiper-slide">
-                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-                        <div class="container">
-                            <div class="hero__content">
-                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
-                                <p class="main-descr main-descr--home">
-                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
-                                </p>
-                                <div class="hero__btns">
-                                    <button class="btn btn--stroke">Learn more about us</button>
-                                    <button class="btn btn--fill">Submit request</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Слайд 2 -->
-                <div class="swiper-slide">
-                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-                        <div class="container">
-                            <div class="hero__content">
-                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
-                                <p class="main-descr main-descr--home">
-                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
-                                </p>
-                                <div class="hero__btns">
-                                    <button class="btn btn--stroke">Learn more about us</button>
-                                    <button class="btn btn--fill">Submit request</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Слайд 3 -->
-                <div class="swiper-slide">
-                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-                        <div class="container">
-                            <div class="hero__content">
-                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
-                                <p class="main-descr main-descr--home">
-                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
-                                </p>
-                                <div class="hero__btns">
-                                    <button class="btn btn--stroke">Learn more about us</button>
-                                    <button class="btn btn--fill">Submit request</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подключаем Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const heroSlider = new Swiper('.hero-slider', {
-                loop: true,
-                speed: 800,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    renderBullet: function(index, className) {
-                        return `<span class="${className}"><span class="hero__bar"></span></span>`;
-                    },
-                },
-                navigation: {
-                    nextEl: '.hero__next',
-                    prevEl: '.hero__prev',
-                },
-                on: {
-                    init: function() {
-                        const bullets = document.querySelectorAll('.hero__bar');
-                        bullets.forEach(bullet => {
-                            bullet.style.width = '0%';
-                        });
-                        
-                        const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
-                        activeBullet.style.width = '100%';
-                    },
-                    slideChangeTransitionStart: function() {
-                        const bullets = document.querySelectorAll('.hero__bar');
-                        bullets.forEach(bullet => {
-                            bullet.style.width = '0%';
-                        });
-                    },
-                    slideChangeTransitionEnd: function() {
-                        const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
-                        activeBullet.style.width = '100%';
-                    }
+            const burgerMenu = document.getElementById('burgerMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuItems = document.querySelectorAll('.mobile-menu__item');
+            
+            // Открытие/закрытие меню
+            burgerMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                
+                // Анимация бургер-иконки
+                if (this.classList.contains('active')) {
+                    this.querySelectorAll('.burger-line')[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
+                    this.querySelectorAll('.burger-line')[1].style.opacity = '0';
+                    this.querySelectorAll('.burger-line')[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+                } else {
+                    this.querySelectorAll('.burger-line')[0].style.transform = 'rotate(0) translate(0)';
+                    this.querySelectorAll('.burger-line')[1].style.opacity = '1';
+                    this.querySelectorAll('.burger-line')[2].style.transform = 'rotate(0) translate(0)';
                 }
             });
-
-            // Анимация прогресс-бара пагинации
-            let interval;
-            function startProgressBar() {
-                clearInterval(interval);
-                const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
-                if (activeBullet) {
-                    activeBullet.style.width = '0%';
-                    let width = 0;
-                    const duration = 5000; // 5 секунд
-                    const increment = 100 / (duration / 16);
-                    
-                    interval = setInterval(() => {
-                        width += increment;
-                        activeBullet.style.width = `${width}%`;
-                        
-                        if (width >= 100) {
-                            clearInterval(interval);
+            
+            // Раскрытие подменю
+            menuItems.forEach(item => {
+                if (item.querySelector('.mobile-menu__sublist')) {
+                    item.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('mobile-menu__link') && !e.target.parentElement.classList.contains('mobile-menu__sublist')) {
+                            e.preventDefault();
+                            this.classList.toggle('active');
                         }
-                    }, 16);
+                    });
                 }
-            }
-
-            heroSlider.on('autoplayTimeLeft', () => {
-                startProgressBar();
             });
-
-            heroSlider.on('slideChange', () => {
-                startProgressBar();
-            });
-
-            startProgressBar();
         });
     </script>
 </body>
