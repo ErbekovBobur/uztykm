@@ -26,6 +26,7 @@
         
         body {
             color: var(--text-color);
+            background-color: gold;
         }
         
         a {
@@ -62,7 +63,7 @@
         }
         
         .logo {
-            font-size: 18px;
+            font-size: clamp(16px, 3vw, 20px);
             font-weight: 700;
             color: var(--text-color);
             text-transform: uppercase;
@@ -101,7 +102,7 @@
             color: var(--accent-color);
         }
         
-        /* Выпадающий список */
+        /* Выпадающий список (десктоп) */
         .nav__item--has-dropdown {
             position: relative;
         }
@@ -186,146 +187,264 @@
         }
 
         /* Стили для мобильного меню */
-        @media (max-width: 768px) {
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu__list {
+            padding: 20px;
+        }
+        
+        .mobile-menu__item {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-menu__link {
+            color: var(--text-color);
+            font-size: 16px;
+            display: block;
+            padding: 8px 0;
+        }
+        
+        /* Анимация бургера в крестик */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px; /*21px*/
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 8px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -8px);
+        }
+        
+        /* Контакты в мобильном меню */
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Выпадающий список в мобильном меню */
+        .mobile-menu__item--has-dropdown {
+            position: relative;
+        }
+        
+        .mobile-menu__dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 20px;
+        }
+        
+        .mobile-menu__item--has-dropdown.active .mobile-menu__dropdown {
+            max-height: 300px; /* Достаточно для всех подпунктов */
+        }
+        
+        .mobile-menu__dropdown-item {
+            padding: 8px 0;
+        }
+        
+        .mobile-menu__dropdown-link {
+            font-size: 14px;
+            color: var(--text-color);
+            display: block;
+        }
+        
+        .mobile-menu__dropdown-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu__link--toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-menu__link--toggle::after {
+            content: '\25BC'; /* Стрелка вниз */
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu__item--has-dropdown.active .mobile-menu__link--toggle::after {
+            transform: rotate(180deg); /* Стрелка вверх */
+        }
+
+        /* Медиа-запросы для мобильного и планшетного режимов */
+        @media (max-width: 1024px) {
             .nav {
-                display: none;
+                display: none; /* Скрываем десктопную навигацию */
             }
-            .logo {
-                font-size: 16px;
-                color: var(--accent-color);
-            }
+            
             .mobile-menu-btn {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 30px;
-                height: 21px;
-                cursor: pointer;
-                background: none;
-                border: none;
-                padding: 0;
-                z-index: 1001;
-            }
-            
-            .mobile-menu-btn span {
-                display: block;
-                width: 100%;
-                height: 3px;
-                background: var(--text-color);
-                transition: all 0.3s ease;
-            }
-            
-            .mobile-menu {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                z-index: 999;
-            }
-            
-            .mobile-menu.active {
-                max-height: calc(100vh - 80px);
-                overflow-y: auto;
-            }
-            
-            .mobile-menu__list {
-                padding: 20px;
-            }
-            
-            .mobile-menu__item {
-                margin-bottom: 15px;
-            }
-            
-            .mobile-menu__link {
-                color: var(--text-color);
-                font-size: 16px;
-                display: block;
-                padding: 8px 0;
-            }
-            
-            /* Анимация бургера в крестик */
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 8px);
-            }
-            
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -8px);
-            }
-            
-            /* Контакты в мобильном меню */
-            .mobile-contact-item {
-                display: flex;
-                align-items: center;
-                margin-bottom: 15px;
-                padding: 10px 0;
-                border-top: 1px solid #eee;
+                display: flex; /* Показываем гамбургер-меню */
             }
             
             .desktop-only {
                 display: none !important;
             }
             
-            /* Выпадающий список в мобильном меню */
-            .mobile-menu__item--has-dropdown {
-                position: relative;
+            .mobile-only {
+               display: flex !important;
+            }
+        }
+
+        /* Медиа-запрос для мобильного режима (до 768px) */
+        @media (max-width: 768px) {
+            body {
+                background-color: #fc3a0e;
+            }
+            .mobile-menu-btn {
+                width: 30px;
+                height: 21px;                                      
+            }
+            
+            .mobile-menu {
+                top: 62px;
+            }
+            .hero{
+                margin-top: 62px;
+            }
+        }
+
+        /* Медиа-запрос для планшетного режима (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .mobile-menu-btn {
+                width: 36px; /* Увеличиваем размер кнопки */
+                height: 24px;
+            }
+            
+            .mobile-menu-btn span {
+                height: 4px; /* Утолщаем полоски */
+            }
+            
+            .mobile-menu {
+                top: 85px; /* Учитываем увеличенную высоту шапки */
+                background: var(--white);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            }
+            
+            .mobile-menu.active {
+                max-height: calc(100vh - 90px);
+            }
+            
+            .mobile-menu__list {
+                padding: 30px; /* Увеличиваем отступы */
+            }
+            
+            .mobile-menu__item {
+                margin-bottom: 20px; /* Больше пространства */
+            }
+            
+            .mobile-menu__link {
+                font-size: 18px; /* Увеличиваем шрифт */
+                padding: 12px 0;
             }
             
             .mobile-menu__dropdown {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                padding-left: 20px;
+                padding-left: 30px; /* Увеличиваем отступ */
             }
             
             .mobile-menu__item--has-dropdown.active .mobile-menu__dropdown {
-                max-height: 300px; /* Достаточно для всех подпунктов */
+                max-height: 400px; /* Увеличиваем для подпунктов */
             }
             
             .mobile-menu__dropdown-item {
-                padding: 8px 0;
+                padding: 10px 0;
             }
             
             .mobile-menu__dropdown-link {
-                font-size: 14px;
-                color: var(--text-color);
-                display: block;
-            }
-            
-            .mobile-menu__dropdown-link:hover {
-                color: var(--accent-color);
-            }
-            
-            .mobile-menu__link--toggle {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                font-size: 16px; /* Увеличиваем шрифт подпунктов */
             }
             
             .mobile-menu__link--toggle::after {
-                content: '\25BC'; /* Стрелка вниз */
-                font-size: 12px;
-                transition: transform 0.3s ease;
+                font-size: 14px; /* Увеличиваем стрелку */
             }
             
-            .mobile-menu__item--has-dropdown.active .mobile-menu__link--toggle::after {
-                transform: rotate(180deg); /* Стрелка вверх */
+            .mobile-contact-item {
+                padding: 15px 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-text {
+                font-size: 16px; /* Увеличиваем шрифт контактов */
+            }
+            
+            .contact-icon {
+                width: 24px; /* Увеличиваем иконки */
+                height: 24px;
+            }
+            
+            .header {
+                padding: 25px 0; /* Увеличиваем высоту шапки */
+            }
+            
+            .logo {
+                font-size: 28px; /* Увеличиваем логотип */
+            }
+            
+            .hero {
+                margin-top: 85px; /* Учитываем высоту шапки */
+            }
+            body {
+                background-color: blue;
             }
         }
-        
-        @media (min-width: 769px) {
+
+        /* Стили для десктопной версии (выше 1024px) */
+        @media (min-width: 1025px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+            
+            .mobile-menu {
+                display: none !important;
+            }
+            
             .mobile-only {
                 display: none !important;
             }
         }
+        
 
         /* Стили для слайдера */
         .hero {
@@ -333,7 +452,7 @@
             height: 100vh;
             overflow: hidden;
             color: var(--white);
-            margin-top: 80px; /* Учитываем высоту шапки */
+            margin-top: 80px;
         }
         
         .hero-slider {
@@ -407,7 +526,6 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         
-        /* Навигация слайдера */
         .slider-nav__btn {
             position: absolute;
             top: 50%;
@@ -606,7 +724,7 @@
             <!-- Кнопки навигации -->
             <button class="slider-nav__btn hero__prev" aria-label="Oldingi slayd">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 18L8 12L14 6" stroke alkan-currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 18L8 12L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
             <button class="slider-nav__btn hero__next" aria-label="Keyingi slayd">
@@ -676,14 +794,18 @@
             </div>
         </div>
     </section>
-    <section><p id="width"></p></section>
+<section>
+    <p id="width"></p>
+    
+      
+
+</section>
     <!-- Подключаем Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById("width").innerText = "Ширина окна: " + window.innerWidth + "px";
-        
+                  document.getElementById("width").innerText = "Ширина окна: " + window.innerWidth + "px";
             // Инициализация слайдера
             const heroSlider = new Swiper('.hero-slider', {
                 loop: true,
@@ -709,7 +831,6 @@
                 },
                 on: {
                     slideChangeTransitionStart: function() {
-                        // Сброс анимации для всех прогресс-баров
                         const bullets = document.querySelectorAll('.hero__bar');
                         bullets.forEach(bullet => {
                             bullet.style.animation = 'none';
@@ -718,7 +839,6 @@
                         });
                     },
                     slideChangeTransitionEnd: function() {
-                        // Запуск анимации для активного прогресс-бара
                         const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
                         activeBullet.style.animation = 'progress 5s linear forwards';
                     }
@@ -729,6 +849,46 @@
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
 
+            // Убедимся, что меню закрыто при загрузке
+            function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = ''; // Убираем блокировку скролла
+            }
+
+            
+
+    if (mobileMenu && mobileMenuBtn) {
+        // Убедимся, что меню закрыто при загрузке
+        closeMobileMenu();
+
+        // Открытие/закрытие по кнопке
+        mobileMenuBtn.addEventListener('click', function (e) {
+            e.stopPropagation(); // чтобы не сработал клик вне меню
+            const isActive = this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            this.setAttribute('aria-expanded', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        });
+
+        // Закрытие при клике вне меню
+        document.addEventListener('click', function (e) {
+            const isClickInside = mobileMenu.contains(e.target) || mobileMenuBtn.contains(e.target);
+            if (!isClickInside && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Закрытие при клике на ссылку в меню
+        const menuLinks = mobileMenu.querySelectorAll('.mobile-menu__dropdown-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                closeMobileMenu();
+            });
+        });
+    }
+            /*
             mobileMenuBtn.addEventListener('click', function() {
                 const isActive = this.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
@@ -736,8 +896,8 @@
                 // Обновление ARIA и блокировка скролла
                 this.setAttribute('aria-expanded', isActive);
                 document.body.style.overflow = isActive ? 'hidden' : '';
-            });
-
+            }); 
+            */
             // Выпадающий список в мобильном меню
             const dropdownToggles = document.querySelectorAll('.mobile-menu__link--toggle');
             dropdownToggles.forEach(toggle => {
