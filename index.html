@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Createx Construction</title>
+    <meta name="description" content="O'ztemiryo'lqurilishmontaj MCHJ - O'zbekistonda professional qurilish xizmatlari">
+    <meta name="keywords" content="qurilish, O'zbekiston, O'ztemiryo'lqurilishmontaj, qurilish xizmatlari">
+    <title>O'ztemiryo'lqurilishmontaj</title>
     <!-- Подключаем Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
@@ -96,6 +98,47 @@
         }
         
         .nav__link:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Выпадающий список */
+        .nav__item--has-dropdown {
+            position: relative;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .nav__item--has-dropdown:hover .dropdown,
+        .nav__item--has-dropdown:focus-within .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown__item {
+            padding: 12px 20px;
+        }
+        
+        .dropdown__link {
+            font-size: 14px;
+            color: var(--text-color);
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .dropdown__link:hover {
             color: var(--accent-color);
         }
         
@@ -226,6 +269,52 @@
             
             .desktop-only {
                 display: none !important;
+            }
+            
+            /* Выпадающий список в мобильном меню */
+            .mobile-menu__item--has-dropdown {
+                position: relative;
+            }
+            
+            .mobile-menu__dropdown {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding-left: 20px;
+            }
+            
+            .mobile-menu__item--has-dropdown.active .mobile-menu__dropdown {
+                max-height: 300px; /* Достаточно для всех подпунктов */
+            }
+            
+            .mobile-menu__dropdown-item {
+                padding: 8px 0;
+            }
+            
+            .mobile-menu__dropdown-link {
+                font-size: 14px;
+                color: var(--text-color);
+                display: block;
+            }
+            
+            .mobile-menu__dropdown-link:hover {
+                color: var(--accent-color);
+            }
+            
+            .mobile-menu__link--toggle {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .mobile-menu__link--toggle::after {
+                content: '\25BC'; /* Стрелка вниз */
+                font-size: 12px;
+                transition: transform 0.3s ease;
+            }
+            
+            .mobile-menu__item--has-dropdown.active .mobile-menu__link--toggle::after {
+                transform: rotate(180deg); /* Стрелка вверх */
             }
         }
         
@@ -368,17 +457,31 @@
             cursor: pointer;
             border-radius: 3px;
             overflow: hidden;
+            position: relative;
         }
         
-        .swiper-pagination-bullet-active {
-            background: var(--accent-color);
+        .swiper-pagination-bullet-active .hero__bar {
+            width: 100%;
+            animation: progress 5s linear forwards;
         }
         
         .hero__bar {
             display: block;
             height: 100%;
-            width: 0%;
+            width: 0;
             background: var(--white);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
         
         .visually-hidden {
@@ -398,39 +501,50 @@
     <header class="header">
         <div class="container">
             <div class="header__inner">
-                <a href="/" class="logo">Createx</a>
+                <a href="/" class="logo">O'ztemiryo'lqurilishmontaj</a>
                 
                 <!-- Кнопка мобильного меню -->
-                <button class="mobile-menu-btn mobile-only" id="mobileMenuBtn">
+                <button class="mobile-menu-btn mobile-only" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 
                 <!-- Десктопная навигация -->
-                <nav class="nav desktop-only">
+                <nav class="nav desktop-only" role="navigation">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="#" class="nav__link">About Us</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Services</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">News</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Contacts</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Bosh sahifa</a></li>
+                        <li class="nav__item nav__item--has-dropdown">
+                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">Biz haqimizda</a>
+                            <ul class="dropdown">
+                                <li class="dropdown__item"><a href="#" class="dropdown__link">Korxona tarixi</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link">Funksiya va vazifalar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link">Rahbariyat</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link">Ma’muriy tuzilish</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link">Korxona va tashkilotlar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link">Stansiyalar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link">Tarkibiy bo’linmalar</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item"><a href="#" class="nav__link">Xizmatlar</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Yangiliklar</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Aloqa</a></li>
                     </ul>
                     
                     <div class="contact-info desktop-only">
                         <div class="contact-item">
                             <div class="contact-icon icon-phone"></div>
                             <div class="contact-text">
-                                <span>Call us</span>
-                                <strong>(405) 555-0128</strong>
+                                <span>Bizga qo'ng'iroq qiling</span>
+                                <a href="tel:+998711234567"><strong>+998 71 123-45-67</strong></a>
                             </div>
                         </div>
                         
                         <div class="contact-item">
                             <div class="contact-icon icon-email"></div>
                             <div class="contact-text">
-                                <span>Talk to us</span>
-                                <strong>hello@createx.com</strong>
+                                <span>Biz bilan bog'laning</span>
+                                <a href="mailto:info@oztemir.uz"><strong>info@oztemir.uz</strong></a>
                             </div>
                         </div>
                     </div>
@@ -439,19 +553,30 @@
                 <!-- Мобильное меню -->
                 <div class="mobile-menu mobile-only" id="mobileMenu">
                     <ul class="mobile-menu__list">
-                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">About Us</a></li>
-                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Services</a></li>
-                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Work</a></li>
-                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">News</a></li>
-                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Contacts</a></li>
+                        <li class="mobile-menu__item mobile-menu__item--has-dropdown">
+                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false">Bosh sahifa</a>
+                            <ul class="mobile-menu__dropdown">
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Korxona tarixi</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Funksiya va vazifalar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Rahbariyat</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Ma’muriy tuzilish</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Korxona va tashkilotlar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Stansiyalar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Tarkibiy bo’linmalar</a></li>
+                            </ul>
+                        </li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Biz haqimizda</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Xizmatlar</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Yangiliklar</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Aloqa</a></li>
                         
                         <!-- Контакты в мобильном меню -->
                         <li class="mobile-menu__item">
                             <div class="mobile-contact-item">
                                 <div class="contact-icon icon-phone"></div>
                                 <div class="contact-text">
-                                    <span>Call us</span>
-                                    <strong>(405) 555-0128</strong>
+                                    <span>Bizga qo'ng'iroq qiling</span>
+                                    <a href="tel:+998711234567"><strong>+998 71 123-45-67</strong></a>
                                 </div>
                             </div>
                         </li>
@@ -460,8 +585,8 @@
                             <div class="mobile-contact-item">
                                 <div class="contact-icon icon-email"></div>
                                 <div class="contact-text">
-                                    <span>Talk to us</span>
-                                    <strong>hello@createx.com</strong>
+                                    <span>Biz bilan bog'laning</span>
+                                    <a href="mailto:info@oztemir.uz"><strong>info@oztemir.uz</strong></a>
                                 </div>
                             </div>
                         </li>
@@ -473,15 +598,15 @@
 
     <!-- Слайдер -->
     <section class="hero">
-        <h1 class="visually-hidden">Createx Construction</h1>
+        <h1 class="visually-hidden">O'ztemiryo'lqurilishmontaj MCHJ</h1>
         <div class="hero-slider swiper">
             <!-- Кнопки навигации -->
-            <button class="slider-nav__btn hero__prev" aria-label="Previous slide">
+            <button class="slider-nav__btn hero__prev" aria-label="Oldingi slayd">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 18L8 12L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 18L8 12L14 6" stroke alkan-currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-            <button class="slider-nav__btn hero__next" aria-label="Next slide">
+            <button class="slider-nav__btn hero__next" aria-label="Keyingi slayd">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 18L16 12L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -497,13 +622,13 @@
                     <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
                         <div class="container">
                             <div class="hero__content">
-                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
+                                <h1 class="main-title main-title--home">O'ztemiryo'lqurilishmontaj<span> MCHJ</span></h1>
                                 <p class="main-descr main-descr--home">
-                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                                    Biz yuqori sifatli qurilish xizmatlarini taqdim etamiz. Loyihalaringizni professional jamoamiz bilan amalga oshiring.
                                 </p>
                                 <div class="hero__btns">
-                                    <button class="btn btn--stroke">Learn more about us</button>
-                                    <button class="btn btn--fill">Submit request</button>
+                                    <button class="btn btn--stroke">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill">So'rov yuborish</button>
                                 </div>
                             </div>
                         </div>
@@ -515,13 +640,13 @@
                     <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
                         <div class="container">
                             <div class="hero__content">
-                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
+                                <h1 class="main-title main-title--home">O'ztemiryo'lqurilishmontaj<span> MCHJ</span></h1>
                                 <p class="main-descr main-descr--home">
-                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                                    Bizning tajribali mutaxassislar jamoasi loyihangizni o'z vaqtida va yuqori sifatda bajaradi.
                                 </p>
                                 <div class="hero__btns">
-                                    <button class="btn btn--stroke">Learn more about us</button>
-                                    <button class="btn btn--fill">Submit request</button>
+                                    <button class="btn btn--stroke">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill">So'rov yuborish</button>
                                 </div>
                             </div>
                         </div>
@@ -533,13 +658,13 @@
                     <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
                         <div class="container">
                             <div class="hero__content">
-                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
+                                <h1 class="main-title main-title--home">O'ztemiryo'lqurilishmontaj<span> MCHJ</span></h1>
                                 <p class="main-descr main-descr--home">
-                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                                    Innovatsion yechimlar va zamonaviy texnologiyalar yordamida qurilishning yangi darajasini kashf eting.
                                 </p>
                                 <div class="hero__btns">
-                                    <button class="btn btn--stroke">Learn more about us</button>
-                                    <button class="btn btn--fill">Submit request</button>
+                                    <button class="btn btn--stroke">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill">So'rov yuborish</button>
                                 </div>
                             </div>
                         </div>
@@ -578,70 +703,45 @@
                     prevEl: '.hero__prev',
                 },
                 on: {
-                    init: function() {
-                        const bullets = document.querySelectorAll('.hero__bar');
-                        bullets.forEach(bullet => {
-                            bullet.style.width = '0%';
-                        });
-                        
-                        const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
-                        activeBullet.style.width = '100%';
-                    },
                     slideChangeTransitionStart: function() {
+                        // Сброс анимации для всех прогресс-баров
                         const bullets = document.querySelectorAll('.hero__bar');
                         bullets.forEach(bullet => {
-                            bullet.style.width = '0%';
+                            bullet.style.animation = 'none';
+                            bullet.offsetHeight; // Триггер reflow
+                            bullet.style.width = '0';
                         });
                     },
                     slideChangeTransitionEnd: function() {
+                        // Запуск анимации для активного прогресс-бара
                         const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
-                        activeBullet.style.width = '100%';
+                        activeBullet.style.animation = 'progress 5s linear forwards';
                     }
                 }
             });
 
-            // Анимация прогресс-бара пагинации
-            let interval;
-            function startProgressBar() {
-                clearInterval(interval);
-                const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
-                if (activeBullet) {
-                    activeBullet.style.width = '0%';
-                    let width = 0;
-                    const duration = 5000; // 5 секунд
-                    const increment = 100 / (duration / 16);
-                    
-                    interval = setInterval(() => {
-                        width += increment;
-                        activeBullet.style.width = `${width}%`;
-                        
-                        if (width >= 100) {
-                            clearInterval(interval);
-                        }
-                    }, 16);
-                }
-            }
-
-            heroSlider.on('autoplayTimeLeft', () => {
-                startProgressBar();
-            });
-
-            heroSlider.on('slideChange', () => {
-                startProgressBar();
-            });
-
-            startProgressBar();
-
             // Мобильное меню
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            
+
             mobileMenuBtn.addEventListener('click', function() {
-                this.classList.toggle('active');
+                const isActive = this.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
                 
-                // Блокировка скролла при открытом меню
-                document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+                // Обновление ARIA и блокировка скролла
+                this.setAttribute('aria-expanded', isActive);
+                document.body.style.overflow = isActive ? 'hidden' : '';
+            });
+
+            // Выпадающий список в мобильном меню
+            const dropdownToggles = document.querySelectorAll('.mobile-menu__link--toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    const isActive = parent.classList.toggle('active');
+                    this.setAttribute('aria-expanded', isActive);
+                });
             });
         });
     </script>
