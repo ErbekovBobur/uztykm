@@ -307,144 +307,7 @@
         
         .mobile-menu__item--has-dropdown.active .mobile-menu__link--toggle::after {
             transform: rotate(180deg); /* Стрелка вверх */
-        }
-
-        /* Медиа-запросы для мобильного и планшетного режимов */
-        @media (max-width: 1024px) {
-            .nav {
-                display: none; /* Скрываем десктопную навигацию */
-            }
-            
-            .mobile-menu-btn {
-                display: flex; /* Показываем гамбургер-меню */
-            }
-            
-            .desktop-only {
-                display: none !important;
-            }
-            
-            .mobile-only {
-               display: flex !important;
-            }
-        }
-
-        /* Медиа-запрос для мобильного режима (до 768px) */
-        @media (max-width: 768px) {
-            body {
-                background-color: #fc3a0e;
-            }
-            .mobile-menu-btn {
-                width: 30px;
-                height: 21px;                                      
-            }
-            
-            .mobile-menu {
-                top: 62px;
-            }
-            .hero{
-                margin-top: 62px;
-            }
-        }
-
-        /* Медиа-запрос для планшетного режима (769px - 1024px) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .mobile-menu-btn {
-                width: 36px; /* Увеличиваем размер кнопки */
-                height: 24px;
-            }
-            
-            .mobile-menu-btn span {
-                height: 4px; /* Утолщаем полоски */
-            }
-            
-            .mobile-menu {
-                top: 85px; /* Учитываем увеличенную высоту шапки */
-                background: var(--white);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-            }
-            
-            .mobile-menu.active {
-                max-height: calc(100vh - 90px);
-            }
-            
-            .mobile-menu__list {
-                padding: 30px; /* Увеличиваем отступы */
-            }
-            
-            .mobile-menu__item {
-                margin-bottom: 20px; /* Больше пространства */
-            }
-            
-            .mobile-menu__link {
-                font-size: 18px; /* Увеличиваем шрифт */
-                padding: 12px 0;
-            }
-            
-            .mobile-menu__dropdown {
-                padding-left: 30px; /* Увеличиваем отступ */
-            }
-            
-            .mobile-menu__item--has-dropdown.active .mobile-menu__dropdown {
-                max-height: 400px; /* Увеличиваем для подпунктов */
-            }
-            
-            .mobile-menu__dropdown-item {
-                padding: 10px 0;
-            }
-            
-            .mobile-menu__dropdown-link {
-                font-size: 16px; /* Увеличиваем шрифт подпунктов */
-            }
-            
-            .mobile-menu__link--toggle::after {
-                font-size: 14px; /* Увеличиваем стрелку */
-            }
-            
-            .mobile-contact-item {
-                padding: 15px 0;
-                margin-bottom: 20px;
-            }
-            
-            .contact-text {
-                font-size: 16px; /* Увеличиваем шрифт контактов */
-            }
-            
-            .contact-icon {
-                width: 24px; /* Увеличиваем иконки */
-                height: 24px;
-            }
-            
-            .header {
-                padding: 25px 0; /* Увеличиваем высоту шапки */
-            }
-            
-            .logo {
-                font-size: 28px; /* Увеличиваем логотип */
-            }
-            
-            .hero {
-                margin-top: 85px; /* Учитываем высоту шапки */
-            }
-            body {
-                background-color: blue;
-            }
-        }
-
-        /* Стили для десктопной версии (выше 1024px) */
-        @media (min-width: 1025px) {
-            .mobile-menu-btn {
-                display: none !important;
-            }
-            
-            .mobile-menu {
-                display: none !important;
-            }
-            
-            .mobile-only {
-                display: none !important;
-            }
-        }
-        
+        }        
 
         /* Стили для слайдера */
         .hero {
@@ -615,6 +478,142 @@
             border: 0;
             clip: rect(0 0 0 0);
         }
+        /* Медиа-запросы для мобильного и планшетного режимов */
+        @media (max-width: 1024px) {
+            .nav {
+                display: none; /* Скрываем десктопную навигацию */
+            }
+            
+            .mobile-menu-btn {
+                display: flex; /* Показываем гамбургер-меню */
+            }
+            
+            .desktop-only {
+                display: none !important;
+            }
+            
+            .mobile-only {
+               display: flex !important;
+            }
+        }
+
+        /* Медиа-запрос для мобильного режима (до 768px) */
+        @media (max-width: 768px) {
+            body {
+                background-color: #fc3a0e;
+            }
+            .mobile-menu-btn {
+                width: 30px;
+                height: 21px;                                      
+            }
+            
+            .mobile-menu {
+                top: 62px;
+            }
+            .hero{
+                margin-top: 62px;
+            }
+        }
+
+        /* Медиа-запрос для планшетного режима (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .mobile-menu-btn {
+                width: 36px; /* Увеличиваем размер кнопки */
+                height: 24px;
+            }
+            
+            .mobile-menu-btn span {
+                height: 4px; /* Утолщаем полоски */
+            }
+            
+            .mobile-menu {
+                top: 85px; /* Учитываем увеличенную высоту шапки */
+                background: var(--white);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            }
+            
+            .mobile-menu.active {
+                max-height: calc(100vh - 90px);
+            }
+            
+            .mobile-menu__list {
+                padding: 30px; /* Увеличиваем отступы */
+            }
+            
+            .mobile-menu__item {
+                margin-bottom: 20px; /* Больше пространства */
+            }
+            
+            .mobile-menu__link {
+                font-size: 18px; /* Увеличиваем шрифт */
+                padding: 12px 0;
+            }
+            
+            .mobile-menu__dropdown {
+                padding-left: 30px; /* Увеличиваем отступ */
+            }
+            
+            .mobile-menu__item--has-dropdown.active .mobile-menu__dropdown {
+                max-height: 400px; /* Увеличиваем для подпунктов */
+            }
+            
+            .mobile-menu__dropdown-item {
+                padding: 10px 0;
+            }
+            
+            .mobile-menu__dropdown-link {
+                font-size: 16px; /* Увеличиваем шрифт подпунктов */
+            }
+            
+            .mobile-menu__link--toggle::after {
+                font-size: 14px; /* Увеличиваем стрелку */
+            }
+            
+            .mobile-contact-item {
+                padding: 15px 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-text {
+                font-size: 16px; /* Увеличиваем шрифт контактов */
+            }
+            
+            .contact-icon {
+                width: 24px; /* Увеличиваем иконки */
+                height: 24px;
+            }
+            
+            .header {
+                padding: 25px 0; /* Увеличиваем высоту шапки */
+            }
+            
+            .logo {
+                font-size: 28px; /* Увеличиваем логотип */
+            }
+            
+            .hero {
+                margin-top: 85px; /* Учитываем высоту шапки */
+            }
+            body {
+                background-color: blue;
+            }
+        }
+
+        /* Стили для десктопной версии (выше 1024px) */
+        @media (min-width: 1025px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+            
+            .mobile-menu {
+                display: none !important;
+            }
+            
+            .mobile-only {
+                display: none !important;
+            }
+        }
+        
     </style>
 </head>
 <body>
