@@ -50,7 +50,7 @@ ul {
 }
 
 .logo {
-    font-size: clamp(20px, 3vw, 24px);
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: 700;
     color: var(--text-color);
     text-transform: uppercase;
@@ -1191,11 +1191,11 @@ ul {
 /* Адаптивность */
 @media (max-width: 991px) {
     .desktop-only {
-        display: none;
+        display: none !important;
     }
 
     .mobile-only {
-        display: block;
+        display: flex;
     }
 
     .mobile-menu-btn {
@@ -1272,7 +1272,7 @@ ul {
     .testimonials-section__title,
     .blog-section__title,
     .partners-section__title {
-        font-size: 28px;
+        font-size: 22px;
     }
 
     .video-section__descr,
