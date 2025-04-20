@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="O'ztemiryo'lqurilishmontaj MCHJ - O'zbekistonda professional qurilish xizmatlari">
+    <meta name="keywords" content="qurilish, O'zbekiston, O'ztemiryo'lqurilishmontaj, qurilish xizmatlari">
+    <title data-key="title">O'ztemiryo'lqurilishmontaj</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="/" class="logo" data-key="logo">O'ztemiryo'lqurilishmontaj</a>
+                
+                <button class="mobile-menu-btn mobile-only" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="nav desktop-only" role="navigation">
+                    <ul class="nav__list">
+                        <li class="nav__item nav__item--has-dropdown">
+                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false" data-key="menu_home">Bosh sahifa</a>
+                            <ul class="dropdown">
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_history">Korxona tarixi</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_functions">Funksiya va vazifalar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_leadership">Rahbariyat</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_structure">Ma’muriy tuzilish</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_organizations">Korxona va tashkilotlar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_stations">Stansiyalar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_units">Tarkibiy bo’linmalar</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item nav__item--has-dropdown">
+                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false" data-key="menu_about">Biz haqimizda</a>
+                            <ul class="dropdown">
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_mission">Bizning missiyamiz</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_team">Jamoamiz</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_gallery">Fotogalareya</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_history">Tariximiz</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item nav__item--has-dropdown">
+                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false" data-key="menu_services">Xizmatlar</a>
+                            <ul class="dropdown">
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_services_construction">Qurilish xizmatlari</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_services_management">Loyiha boshqaruvi</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_services_consulting">Konsultatsiya</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item"><a href="#" class="nav__link" data-key="menu_news">Yangiliklar</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link" data-key="menu_contact">Aloqa</a></li>
+                    </ul>
+                    
+                    <div class="contact-info desktop-only">
+                        <div class="contact-item">
+                            <div class="contact-icon icon-phone"></div>
+                            <div class="contact-text">
+                                <span data-key="contact_phone_label">Bizga qo'ng'iroq qiling</span>
+                                <a href="tel:+998711234567"><strong>+998 71 123-45-67</strong></a>
+                            </div>
+                        </div>
+                        <div class="language-switcher" role="group" aria-label="Tilni tanlash">
+                            <button class="language-btn active" data-lang="uz" role="switch" aria-checked="true">O'ZB</button>
+                            <button class="language-btn" data-lang="ru" role="switch" aria-checked="false">RU</button>
+                        </div>
+                    </div>
+                </nav>
+                
+                <div class="mobile-menu mobile-only" id="mobileMenu" role="menu" aria-label="Mobil menyusi">
+                    <ul class="mobile-menu__list">
+                        <li class="mobile-menu__item mobile-menu__item--has-dropdown">
+                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false" data-key="menu_home">Bosh sahifa</a>
+                            <ul class="mobile-menu__dropdown">
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_history">Korxona tarixi</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_functions">Funksiya va vazifalar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_leadership">Rahbariyat</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_structure">Ma’muriy tuzilish</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_organizations">Korxona va tashkilotlar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_stations">Stansiyalar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_units">Tarkibiy bo’linmalar</a></li>
+                            </ul>
+                        </li>
+                        <li class="mobile-menu__item mobile-menu__item--has-dropdown">
+                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false" data-key="menu_about">Biz haqimizda</a>
+                            <ul class="mobile-menu__dropdown">
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_mission">Bizning missiyamiz</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_team">Jamoamiz</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_gallery">Fotogalareya</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_history">Tariximiz</a></li>
+                            </ul>
+                        </li>
+                        <li class="mobile-menu__item mobile-menu__item--has-dropdown">
+                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false" data-key="menu_services">Xizmatlar</a>
+                            <ul class="mobile-menu__dropdown">
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_services_construction">Qurilish xizmatlari</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_services_management">Loyiha boshqaruvi</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_services_consulting">Konsultatsiya</a></li>
+                            </ul>
+                        </li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link" data-key="menu_news">Yangiliklar</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link" data-key="menu_contact">Aloqa</a></li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-contact-item">
+                                <div class="contact-icon icon-phone"></div>
+                                <div class="contact-text">
+                                    <span data-key="contact_phone_label">Bizga qo'ng'iroq qiling</span>
+                                    <a href="tel:+998711234567"><strong>+998 71 123-45-67</strong></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mobile-menu__item">
+                            <div class="mobile-language-switcher" role="group" aria-label="Tilni tanlash">
+                                <button class="language-btn active" data-lang="uz" role="switch" aria-checked="true">O'ZB</button>
+                                <button class="language-btn" data-lang="ru" role="switch" aria-checked="false">RU</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 class="visually-hidden" data-key="hero_title">O'ztemiryo'lqurilishmontaj MCHJ</h1>
+        <div class="hero-slider swiper">
+            <button class="slider-nav__btn hero__prev" aria-label="Oldingi slayd">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 18L8 12L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="slider-nav__btn hero__next" aria-label="Keyingi slayd">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 18L16 12L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="swiper-pagination hero__pag"></div>
+            <div class="swiper-wrapper">
+                <div class Class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="container">
+                            <div class="hero__content">
+                                <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
+                                <p class="main-descr main-descr--home" data-key="hero_description_1">
+                                    Biz yuqori sifatli qurilish xizmatlarini taqdim etamiz. Loyihalaringizni professional jamoamiz bilan amalga oshiring.
+                                </p>
+                                <div class="hero__btns">
+                                    <button class="btn btn--stroke" data-key="btn_learn_more">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill" data-key="btn_request">So'rov yuborish</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="container">
+                            <div class="hero__content">
+                                <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
+                                <p class="main-descr main-descr--home" data-key="hero_description_2">
+                                    Bizning tajribali mutaxassislar jamoasi loyihangizni o'z vaqtida va yuqori sifatda bajaradi.
+                                </p>
+                                <div class="hero__btns">
+                                    <button class="btn btn--stroke" data-key="btn_learn_more">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill" data-key="btn_request">So'rov yuborish</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="container">
+                            <div class="hero__content">
+                                <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
+                                <p class="main-descr main-descr--home" data-key="hero_description_3">
+                                    Innovatsion yechimlar va zamonaviy texnologiyalar yordamida qurilishning yangi darajasini kashf eting.
+                                </p>
+                                <div class="hero__btns">
+                                    <button class="btn btn--stroke" data-key="btn_learn_more">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill" data-key="btn_request">So'rov yuborish</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container">
+            <h2 class="video-section__title" data-key="video_title">Biz O'ztemiryo'lqurilishmontaj MCHJ qurilish kompaniyasimiz</h2>
+            <p class="video-section__descr" data-key="video_description">
+                Biz O'zbekistondagi eng yaxshi qurilish kompaniyalaridan biri sifatida tan olinganmiz.
+            </p>
+            <div class="video-section__player">
+                <video id="plyr-video" class="plyr-video" poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1230&q=80" playsinline>
+                    <source src="https://download.samplelib.com/mp4/sample-5s.mp4" type="video/mp4">
+                    <track src="/subtitles-uz.vtt" kind="subtitles" srclang="uz" label="O'zbekcha">
+                    <track src="/subtitles-ru.vtt" kind="subtitles" srclang="ru" label="Русский">
+                    Your browser does not support the video tag.
+                </video>
+                <button class="video-section__play-btn" aria-label="Play video"></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <h2 class="about-section__title" data-key="about_title">Biz haqimizda</h2>
+            <p class="about-section__descr" data-key="about_description">
+                Biz qurilish sohasida 20 yildan ortiq tajribaga ega yetakchi kompaniyamiz. Bizning maqsadimiz mijozlarimizning umidlaridan oshib ketadigan yuqori sifatli loyihalarni yetkazib berishdir.
+            </p>
+            <div class="about-section__stats">
+                <div class="about-section__stat">
+                    <div class="about-section__stat-number">20+</div>
+                    <div class="about-section__stat-text" data-key="about_stat_1">Tajriba yillari</div>
+                </div>
+                <div class="about-section__stat">
+                    <div class="about-section__stat-number">500+</div>
+                    <div class="about-section__stat-text" data-key="about_stat_2">Bajarilgan loyihalar</div>
+                </div>
+                <div class="about-section__stat">
+                    <div class="about-section__stat-number">300+</div>
+                    <div class="about-section__stat-text" data-key="about_stat_3">Mamnum mijozlar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages-section">
+        <div class="container">
+            <h2 class="advantages-section__title" data-key="advantages_title">Bizning afzalliklarimiz</h2>
+            <p class="advantages-section__descr" data-key="advantages_description">
+                Nima uchun qurilish loyihalari uchun bizni tanlashadi, bilib oling.
+            </p>
+            <div class="advantages-section__list">
+                <div class="advantage-card">
+                    <div class="advantage-card__icon" style="mask-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm1-9h-2v-2h2v2zm0 4h-2v-2h2v2z%27/%3E%3C/svg%3E');"></div>
+                    <h3 class="advantage-card__title" data-key="advantage_1_title">Sifat kafolati</h3>
+                    <p class="advantage-card__descr" data-key="advantage_1_description">
+                        Biz har bir loyihada eng yuqori sifat standartlarini ta'minlaymiz.
+                    </p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon" style="mask-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm1-9h-2v-2h2v2zm0 4h-2v-2h2v2z%27/%3E%3C/svg%3E');"></div>
+                    <h3 class="advantage-card__title" data-key="advantage_2_title">Tajribali jamoa</h3>
+                    <p class="advantage-card__descr" data-key="advantage_2_description">
+                        Bizning jamoamiz ko'p yillik tajribaga ega yuqori malakali mutaxassislardan iborat.
+                    </p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon" style="mask-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm1-9h-2v-2h2v2zm0 4h-2v-2h2v2z%27/%3E%3C/svg%3E');"></div>
+                    <h3 class="advantage-card__title" data-key="advantage_3_title">O'z vaqtida yetkazib berish</h3>
+                    <p class="advantage-card__descr" data-key="advantage_3_description">
+                        Biz loyihalarni har doim o'z vaqtida yetkazib berishga sodiqmiz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 class="services-section__title" data-key="services_title">Bizning xizmatlarimiz</h2>
+            <p class="services-section__descr" data-key="services_description">
+                Biz sizning ehtiyojlaringizni qondirish uchun keng ko'lamli qurilish xizmatlarini taklif qilamiz.
+            </p>
+            <div class="services-section__list">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Construction" class="service-card__image">
+                    <div class="service-card__content">
+                        <h3 class="service-card__title" data-key="service_1_title">Qurilish</h3>
+                        <p class="service-card__descr" data-key="service_1_description">
+                            Turar joy va tijorat loyihalari uchun keng qamrovli qurilish xizmatlari.
+                        </p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project Management" class="service-card__image">
+                    <div class="service-card__content">
+                        <h3 class="service-card__title" data-key="service_2_title">Loyiha boshqaruvi</h3>
+                        <p class="service-card__descr" data-key="service_2_description">
+                            Loyihani muammosiz amalga oshirish va yetkazib berishni ta'minlash uchun mutaxassis boshqaruv.
+                        </p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Consulting" class="service-card__image">
+                    <div class="service-card__content">
+                        <h3 class="service-card__title" data-key="service_3_title">Konsultatsiya</h3>
+                        <p class="service-card__descr" data-key="service_3_description">
+                            Qurilish sayohatingizda sizga yo'l ko'rsatadigan professional konsultatsiya xizmatlari.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="projects-section__title" data-key="projects_title">Bizning loyihalarimiz</h2>
+            <p class="projects-section__descr" data-key="projects_description">
+                Yaqinda bajarilgan ba'zi loyihalarimiz bilan tanishing.
+            </p>
+            <div class="projects-slider swiper">
+                <button class="slider-nav__btn projects__prev" aria-label="Oldingi loyiha">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 18L8 12L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="slider-nav__btn projects__next" aria-label="Keyingi loyiha">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 18L16 12L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide project-slide">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 1" class="project-slide__image">
+                        <div class="project-slide__overlay">
+                            <h3 class="project-slide__title" data-key="project_1_title">Turar joy majmuasi</h3>
+                            <p class="project-slide__descr" data-key="project_1_description">
+                                Zamonaviy qulayliklarga ega turar joy majmuasi.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide project-slide">
+                        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 2" class="project-slide__image">
+                        <div class="project-slide__overlay">
+                            <h3 class="project-slide__title" data-key="project_2_title">Tijorat binosi</h3>
+                            <p class="project-slide__descr" data-key="project_2_description">
+                                Samaradorlik uchun mo'ljallangan ko'p qavatli tijorat binosi.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide project-slide">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project 3" class="project-slide__image">
+                        <div class="project-slide__overlay">
+                            <h3 class="project-slide__title" data-key="project_3_title">Sanoat ob'ekti</h3>
+                            <p class="project-slide__descr" data-key="project_3_description">
+                                Zamonaviy standartlarga javob beradigan sanoat ob'ekti.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="testimonials-section__title" data-key="testimonials_title">Mijozlarimizning fikrlari</h2>
+            <p class="testimonials-section__descr" data-key="testimonials_description">
+                Biz bilan ishlash haqida mijozlarimiz nima deydi, eshiting.
+            </p>
+            <div class="testimonials-slider swiper">
+                <button class="slider-nav__btn testimonials__prev" aria-label="Oldingi sharh">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 18L8 12L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="slider-nav__btn testimonials__next" aria-label="Keyingi sharh">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 18L16 12L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide testimonial-slide">
+                        <p class="testimonial-slide__quote" data-key="testimonial_1_quote">
+                            "O'ztemiryo'lqurilishmontaj jamoasi loyihamizni o'z vaqtida topshirdi va umidlarimizdan oshib ketdi. Juda tavsiya qilaman!"
+                        </p>
+                        <div class="testimonial-slide__author" data-key="testimonial_1_author">John Doe</div>
+                        <div class="testimonial-slide__position" data-key="testimonial_1_position">ABC Corp direktori</div>
+                    </div>
+                    <div class="swiper-slide testimonial-slide">
+                        <p class="testimonial-slide__quote" data-key="testimonial_2_quote">
+                            "Ularning tafsilotlarga e'tibor berishi va professionalligi butun jarayonni muammosiz qildi. Ajoyib ish!"
+                        </p>
+                        <div class="testimonial-slide__author" data-key="testimonial_2_author">Jane Smith</div>
+                        <div class="testimonial-slide__position" data-key="testimonial_2_position">XYZ Ltd loyiha menejeri</div>
+                    </div>
+                    <div class="swiper-slide testimonial-slide">
+                        <p class="testimonial-slide__quote" data-key="testimonial_3_quote">
+                            "Biz ish sifati va muddatlarga rioya qilishdan juda mamnunmiz."
+                        </p>
+                        <div class="testimonial-slide__author" data-key="testimonial_3_author">Michael Brown</div>
+                        <div class="testimonial-slide__position" data-key="testimonial_3_position">DEF Inc direktori</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="blog-section__title" data-key="blog_title">So'nggi blog maqolalari</h2>
+            <p class="blog-section__descr" data-key="blog_description">
+                Qurilish sohasidagi so'nggi yangiliklar va maslahatlardan xabardor bo'ling.
+            </p>
+            <div class="blog-section__list">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Blog 1" class="blog-card__image">
+                    <div class="blog-card__content">
+                        <h3 class="blog-card__title" data-key="blog_1_title">Zamonaviy qurilish texnologiyalari</h3>
+                        <div class="blog-card__date" data-key="blog_1_date">20 Apr 2025</div>
+                        <p class="blog-card__descr" data-key="blog_1_description">
+                            So'nggi qurilish texnologiyalari loyihalarni qanday tezlashtiradi va sifatni oshiradi.
+                        </p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Blog 2" class="blog-card__image">
+                    <div class="blog-card__content">
+                        <h3 class="blog-card__title" data-key="blog_2_title">Qurilishda xavfsizlik bo'yicha maslahatlar</h3>
+                        <div class="blog-card__date" data-key="blog_2_date">15 Apr 2025</div>
+                        <p class="blog-card__descr" data-key="blog_2_description">
+                            Qurilish maydonchasida xavfsizlikni ta'minlash bo'yicha eng yaxshi amaliyotlar.
+                        </p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Blog 3" class="blog-card__image">
+                    <div class="blog-card__content">
+                        <h3 class="blog-card__title" data-key="blog_3_title">Barqaror qurilishning kelajagi</h3>
+                        <div class="blog-card__date" data-key="blog_3_date">10 Apr 2025</div>
+                        <p class="blog-card__descr" data-key="blog_3_description">
+                            Barqaror qurilish usullari qanday qilib sohani o'zgartirmoqda.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="partners-section__title" data-key="partners_title">Bizning hamkorlarimiz</h2>
+            <div class="partners-section__list">
+                <img src="https://via.placeholder.com/150x60.png?text=Partner+1" alt="Partner 1" class="partner-logo">
+                <img src="https://via.placeholder.com/150x60.png?text=Partner+2" alt="Partner 2" class="partner-logo">
+                <img src="https://via.placeholder.com/150x60.png?text=Partner+3" alt="Partner 3" class="partner-logo">
+                <img src="https://via.placeholder.com/150x60.png?text=Partner+4" alt="Partner 4" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__column">
+                    <a href="/" class="footer__logo" data-key="logo">O'ztemiryo'lqurilishmontaj</a>
+                    <p class="footer__descr" data-key="footer_description">
+                        Biz O'zbekistonda qurilish sohasida yetakchi kompaniyalardan birimiz.
+                    </p>
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social-icon" style="mask-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm1-9h-2v-2h2v2zm0 4h-2v-2h2v2z%27/%3E%3C/svg%3E');" aria-label="Facebook"></a>
+                        <a href="#" class="footer__social-icon" style="mask-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm1-9h-2v-2h2v2zm0 4h-2v-2h2v2z%27/%3E%3C/svg%3E');" aria-label="Twitter"></a>
+                        <a href="#" class="footer__social-icon" style="mask-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm1-9h-2v-2h2v2zm0 4h-2v-2h2v2z%27/%3E%3C/svg%3E');" aria-label="Instagram"></a>
+                    </div>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title" data-key="footer_quick_links">Tez havolalar</h3>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-key="menu_home">Bosh sahifa</a></li>
+                        <li><a href="#" class="footer__link" data-key="menu_about">Biz haqimizda</a></li>
+                        <li><a href="#" class="footer__link" data-key="menu_services">Xizmatlar</a></li>
+                        <li><a href="#" class="footer__link" data-key="menu_news">Yangiliklar</a></li>
+                        <li><a href="#" class="footer__link" data-key="menu_contact">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title" data-key="footer_services">Xizmatlar</h3>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-key="menu_services_construction">Qurilish xizmatlari</a></li>
+                        <li><a href="#" class="footer__link" data-key="menu_services_management">Loyiha boshqaruvi</a></li>
+                        <li><a href="#" class="footer__link" data-key="menu_services_consulting">Konsultatsiya</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title" data-key="footer_contact">Aloqa</h3>
+                    <ul class="footer__list">
+                        <li><a href="tel:+998711234567" class="footer__link">+998 71 123-45-67</a></li>
+                        <li><a href="mailto:info@uztm.uz" class="footer__link">info@uztm.uz</a></li>
+                        <li><a href="#" class="footer__link">Toshkent, O'zbekiston</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p data-key="footer_copyright">&copy; 2025 O'ztemiryo'lqurilishmontaj. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
