@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="O'ztemiryo'lqurilishmontaj MCHJ - O'zbekistonda professional qurilish xizmatlari">
     <meta name="keywords" content="qurilish, O'zbekiston, O'ztemiryo'lqurilishmontaj, qurilish xizmatlari">
-    <title>O'ztemiryo'lqurilishmontaj</title>
+    <title data-key="title">O'ztemiryo'lqurilishmontaj</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         * {
@@ -511,10 +511,6 @@
             .desktop-only {
                 display: none !important;
             }
-            
-            .mobile-only {
-                display: block !important;
-            }
         }
 
         @media (max-width: 768px) {
@@ -548,11 +544,11 @@
             }
             
             .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 9px);
+                transform: rotate(45deg) translate(6px, 8px);
             }
             
             .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -9px);
+                transform: rotate(-45deg) translate(6px, -8px);
             }
             
             .mobile-menu {
@@ -638,10 +634,6 @@
             .mobile-menu {
                 display: none !important;
             }
-            
-            .mobile-only {
-                display: none !important;
-            }
         }
     </style>
 </head>
@@ -649,7 +641,7 @@
     <header class="header">
         <div class="container">
             <div class="header__inner">
-                <a href="/" class="logo">O'ztemiryo'lqurilishmontaj</a>
+                <a href="/" class="logo" data-key="logo">O'ztemiryo'lqurilishmontaj</a>
                 
                 <button class="mobile-menu-btn mobile-only" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
                     <span></span>
@@ -660,42 +652,43 @@
                 <nav class="nav desktop-only" role="navigation">
                     <ul class="nav__list">
                         <li class="nav__item nav__item--has-dropdown">
-                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">Bosh sahifa</a>
+                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false" data-key="menu_home">Bosh sahifa</a>
                             <ul class="dropdown">
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Korxona tarixi</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Funksiya va vazifalar</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Rahbariyat</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Ma’muriy tuzilish</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Korxona va tashkilotlar</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Stansiyalar</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Tarkibiy bo’linmalar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_history">Korxona tarixi</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_functions">Funksiya va vazifalar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_leadership">Rahbariyat</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_structure">Ma’muriy tuzilish</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_organizations">Korxona va tashkilotlar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_stations">Stansiyalar</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_home_units">Tarkibiy bo’linmalar</a></li>
                             </ul>
                         </li>
                         <li class="nav__item nav__item--has-dropdown">
-                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">Biz haqimizda</a>
+                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false" data-key="menu_about">Biz haqimizda</a>
                             <ul class="dropdown">
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Bizning missiyamiz</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Jamoamiz</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Tariximiz</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_mission">Bizning missiyamiz</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_team">Jamoamiz</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_gallery">Fotogalareya</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_history">Tariximiz</a></li>
                             </ul>
                         </li>
                         <li class="nav__item nav__item--has-dropdown">
-                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">Xizmatlar</a>
+                            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false" data-key="menu_services">Xizmatlar</a>
                             <ul class="dropdown">
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Qurilish xizmatlari</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Loyiha boshqaruvi</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link">Konsultatsiya</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_services_construction">Qurilish xizmatlari</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_services_management">Loyiha boshqaruvi</a></li>
+                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_services_consulting">Konsultatsiya</a></li>
                             </ul>
                         </li>
-                        <li class="nav__item"><a href="#" class="nav__link">Yangiliklar</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Aloqa</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link" data-key="menu_news">Yangiliklar</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link" data-key="menu_contact">Aloqa</a></li>
                     </ul>
                     
                     <div class="contact-info desktop-only">
                         <div class="contact-item">
                             <div class="contact-icon icon-phone"></div>
                             <div class="contact-text">
-                                <span>Bizga qo'ng'iroq qiling</span>
+                                <span data-key="contact_phone_label">Bizga qo'ng'iroq qiling</span>
                                 <a href="tel:+998711234567"><strong>+998 71 123-45-67</strong></a>
                             </div>
                         </div>
@@ -709,40 +702,41 @@
                 <div class="mobile-menu mobile-only" id="mobileMenu" role="menu" aria-label="Mobil menyusi">
                     <ul class="mobile-menu__list">
                         <li class="mobile-menu__item mobile-menu__item--has-dropdown">
-                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false">Bosh sahifa</a>
+                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false" data-key="menu_home">Bosh sahifa</a>
                             <ul class="mobile-menu__dropdown">
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Korxona tarixi</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Funksiya va vazifalar</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Rahbariyat</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Ma’muriy tuzilish</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Korxona va tashkilotlar</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Stansiyalar</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Tarkibiy bo’linmalar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_history">Korxona tarixi</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_functions">Funksiya va vazifalar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_leadership">Rahbariyat</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_structure">Ma’muriy tuzilish</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_organizations">Korxona va tashkilotlar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_stations">Stansiyalar</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_home_units">Tarkibiy bo’linmalar</a></li>
                             </ul>
                         </li>
                         <li class="mobile-menu__item mobile-menu__item--has-dropdown">
-                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false">Biz haqimizda</a>
+                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false" data-key="menu_about">Biz haqimizda</a>
                             <ul class="mobile-menu__dropdown">
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Bizning missiyamiz</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Jamoamiz</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Tariximiz</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_mission">Bizning missiyamiz</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_team">Jamoamiz</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_gallery">Fotogalareya</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_history">Tariximiz</a></li>
                             </ul>
                         </li>
                         <li class="mobile-menu__item mobile-menu__item--has-dropdown">
-                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false">Xizmatlar</a>
+                            <a href="#" class="mobile-menu__link mobile-menu__link--toggle" aria-haspopup="true" aria-expanded="false" data-key="menu_services">Xizmatlar</a>
                             <ul class="mobile-menu__dropdown">
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Qurilish xizmatlari</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Loyiha boshqaruvi</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link">Konsultatsiya</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_services_construction">Qurilish xizmatlari</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_services_management">Loyiha boshqaruvi</a></li>
+                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_services_consulting">Konsultatsiya</a></li>
                             </ul>
                         </li>
-                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Yangiliklar</a></li>
-                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Aloqa</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link" data-key="menu_news">Yangiliklar</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link" data-key="menu_contact">Aloqa</a></li>
                         <li class="mobile-menu__item">
                             <div class="mobile-contact-item">
                                 <div class="contact-icon icon-phone"></div>
                                 <div class="contact-text">
-                                    <span>Bizga qo'ng'iroq qiling</span>
+                                    <span data-key="contact_phone_label">Bizga qo'ng'iroq qiling</span>
                                     <a href="tel:+998711234567"><strong>+998 71 123-45-67</strong></a>
                                 </div>
                             </div>
@@ -760,7 +754,7 @@
     </header>
 
     <section class="hero">
-        <h1 class="visually-hidden">O'ztemiryo'lqurilishmontaj MCHJ</h1>
+        <h1 class="visually-hidden" data-key="hero_title">O'ztemiryo'lqurilishmontaj MCHJ</h1>
         <div class="hero-slider swiper">
             <button class="slider-nav__btn hero__prev" aria-label="Oldingi slayd">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -778,13 +772,13 @@
                     <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
                         <div class="container">
                             <div class="hero__content">
-                                <h1 class="main-title main-title--home">O'ztemiryo'lqurilishmontaj<span> MCHJ</span></h1>
-                                <p class="main-descr main-descr--home">
+                                <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
+                                <p class="main-descr main-descr--home" data-key="hero_description_1">
                                     Biz yuqori sifatli qurilish xizmatlarini taqdim etamiz. Loyihalaringizni professional jamoamiz bilan amalga oshiring.
                                 </p>
                                 <div class="hero__btns">
-                                    <button class="btn btn--stroke">Biz haqimizda ko'proq bilib oling</button>
-                                    <button class="btn btn--fill">So'rov yuborish</button>
+                                    <button class="btn btn--stroke" data-key="btn_learn_more">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill" data-key="btn_request">So'rov yuborish</button>
                                 </div>
                             </div>
                         </div>
@@ -794,13 +788,13 @@
                     <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
                         <div class="container">
                             <div class="hero__content">
-                                <h1 class="main-title main-title--home">O'ztemiryo'lqurilishmontaj<span> MCHJ</span></h1>
-                                <p class="main-descr main-descr--home">
+                                <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
+                                <p class="main-descr main-descr--home" data-key="hero_description_2">
                                     Bizning tajribali mutaxassislar jamoasi loyihangizni o'z vaqtida va yuqori sifatda bajaradi.
                                 </p>
                                 <div class="hero__btns">
-                                    <button class="btn btn--stroke">Biz haqimizda ko'proq bilib oling</button>
-                                    <button class="btn btn--fill">So'rov yuborish</button>
+                                    <button class="btn btn--stroke" data-key="btn_learn_more">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill" data-key="btn_request">So'rov yuborish</button>
                                 </div>
                             </div>
                         </div>
@@ -810,13 +804,13 @@
                     <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
                         <div class="container">
                             <div class="hero__content">
-                                <h1 class="main-title main-title--home">O'ztemiryo'lqurilishmontaj<span> MCHJ</span></h1>
-                                <p class="main-descr main-descr--home">
+                                <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
+                                <p class="main-descr main-descr--home" data-key="hero_description_3">
                                     Innovatsion yechimlar va zamonaviy texnologiyalar yordamida qurilishning yangi darajasini kashf eting.
                                 </p>
                                 <div class="hero__btns">
-                                    <button class="btn btn--stroke">Biz haqimizda ko'proq bilib oling</button>
-                                    <button class="btn btn--fill">So'rov yuborish</button>
+                                    <button class="btn btn--stroke" data-key="btn_learn_more">Biz haqimizda ko'proq bilib oling</button>
+                                    <button class="btn btn--fill" data-key="btn_request">So'rov yuborish</button>
                                 </div>
                             </div>
                         </div>
@@ -831,8 +825,92 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Объект с переводами
+            const translations = {
+                uz: {
+                    title: "O'ztemiryo'lqurilishmontaj",
+                    logo: "O'ztemiryo'lqurilishmontaj",
+                    menu_home: "Bosh sahifa",
+                    menu_home_history: "Korxona tarixi",
+                    menu_home_functions: "Funksiya va vazifalar",
+                    menu_home_leadership: "Rahbariyat",
+                    menu_home_structure: "Ma’muriy tuzilish",
+                    menu_home_organizations: "Korxona va tashkilotlar",
+                    menu_home_stations: "Stansiyalar",
+                    menu_home_units: "Tarkibiy bo’linmalar",
+                    menu_about: "Biz haqimizda",
+                    menu_about_mission: "Bizning missiyamiz",
+                    menu_about_team: "Jamoamiz",
+                    menu_about_gallery: "Fotogalareya",
+                    menu_about_history: "Tariximiz",
+                    menu_services: "Xizmatlar",
+                    menu_services_construction: "Qurilish xizmatlari",
+                    menu_services_management: "Loyiha boshqaruvi",
+                    menu_services_consulting: "Konsultatsiya",
+                    menu_news: "Yangiliklar",
+                    menu_contact: "Aloqa",
+                    contact_phone_label: "Bizga qo'ng'iroq qiling",
+                    hero_title: "O'ztemiryo'lqurilishmontaj",
+                    hero_subtitle: " MCHJ",
+                    hero_description_1: "Biz yuqori sifatli qurilish xizmatlarini taqdim etamiz. Loyihalaringizni professional jamoamiz bilan amalga oshiring.",
+                    hero_description_2: "Bizning tajribali mutaxassislar jamoasi loyihangizni o'z vaqtida va yuqori sifatda bajaradi.",
+                    hero_description_3: "Innovatsion yechimlar va zamonaviy texnologiyalar yordamida qurilishning yangi darajasini kashf eting.",
+                    btn_learn_more: "Biz haqimizda ko'proq bilib oling",
+                    btn_request: "So'rov yuborish"
+                },
+                ru: {
+                    title: "O'ztemiryo'lqurilishmontaj MCHJ",
+                    logo: "O'ztemiryo'lqurilishmontaj",
+                    menu_home: "Главная",
+                    menu_home_history: "История предприятия",
+                    menu_home_functions: "Функции и задачи",
+                    menu_home_leadership: "Руководство",
+                    menu_home_structure: "Административная структура",
+                    menu_home_organizations: "Предприятия и организации",
+                    menu_home_stations: "Станции",
+                    menu_home_units: "Структурные подразделения",
+                    menu_about: "О нас",
+                    menu_about_mission: "Наша миссия",
+                    menu_about_team: "Наша команда",
+                    menu_about_gallery:"Фотогалерея",
+                    menu_about_history: "Наша история",
+                    menu_services: "Услуги",
+                    menu_services_construction: "Строительные услуги",
+                    menu_services_management: "Управление проектами",
+                    menu_services_consulting: "Консультации",
+                    menu_news: "Новости",
+                    menu_contact: "Контакты",
+                    contact_phone_label: "Позвоните нам",
+                    hero_title: "O'ztemiryo'lqurilishmontaj",
+                    hero_subtitle: " MCHJ",
+                    hero_description_1: "Мы предоставляем высококачественные строительные услуги. Реализуйте ваши проекты с нашей профессиональной командой.",
+                    hero_description_2: "Наша команда опытных специалистов выполнит ваш проект вовремя и с высоким качеством.",
+                    hero_description_3: "Откройте новый уровень строительства с помощью инновационных решений и современных технологий.",
+                    btn_learn_more: "Узнать больше о нас",
+                    btn_request: "Отправить запрос"
+                }
+            };
+
+            // Функция для обновления текста на странице
+            function updateLanguage(lang) {
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+                document.documentElement.lang = lang;
+                document.querySelector('meta[name="description"]').setAttribute('content', 
+                    lang === 'uz' 
+                        ? "O'ztemiryo'lqurilishmontaj MCHJ - O'zbekistonda professional qurilish xizmatlari"
+                        : "O'ztemiryo'lqurilishmontaj MCHJ - профессиональные строительные услуги в Узбекистане"
+                );
+            }
+
+            // Инициализация ширины окна
             document.getElementById("width").innerText = "Ширина окна: " + window.innerWidth + "px";
             
+            // Инициализация слайдера
             const heroSlider = new Swiper('.hero-slider', {
                 loop: true,
                 speed: 800,
@@ -871,6 +949,7 @@
                 }
             });
 
+            // Логика мобильного меню
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
 
@@ -907,6 +986,7 @@
                 });
             }
 
+            // Логика выпадающих списков
             const dropdownToggles = document.querySelectorAll('.mobile-menu__link--toggle');
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', function(e) {
@@ -917,6 +997,7 @@
                 });
             });
 
+            // Логика переключения языков
             const languageButtons = document.querySelectorAll('.language-btn');
             languageButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -926,20 +1007,24 @@
                     });
                     this.classList.add('active');
                     this.setAttribute('aria-checked', 'true');
+                    const lang = this.dataset.lang;
+                    updateLanguage(lang);
                     if (mobileMenu.classList.contains('active')) {
                         closeMobileMenu();
                     }
-                    // Здесь можно добавить логику смены языка (например, редирект или смена контента)
-                    console.log(`Выбран язык: ${this.dataset.lang}`);
                 });
             });
 
+            // Обновление ширины окна при изменении размера
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 1024) {
                     closeMobileMenu();
                 }
                 document.getElementById("width").innerText = "Ширина окна: " + window.innerWidth + "px";
             });
+
+            // Инициализация языка по умолчанию
+            updateLanguage('uz');
         });
     </script>
 </body>
