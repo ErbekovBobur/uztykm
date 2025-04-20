@@ -558,18 +558,59 @@
             background: rgba(255, 90, 48, 0.2); /* Подсветка при наведении */
         }
 
+        /* Отключение стандартной полосы браузера */
+        .plyr-video::-webkit-media-controls-timeline {
+            display: none !important;
+        }
+
+        .plyr-video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        /* Стили для полосы прогресса Plyr */
         .plyr__progress__container {
             background: rgba(255, 255, 255, 0.2);
             height: 4px;
             border-radius: 2px;
+            position: relative;
+            margin: 0 10px;
         }
 
         .plyr__progress__buffer {
             background: rgba(255, 255, 255, 0.4);
+            height: 100%;
+            border-radius: 2px;
         }
 
         .plyr__progress__bar {
             background: var(--accent-color);
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .plyr__progress input[type="range"] {
+            appearance: none;
+            background: transparent;
+            height: 4px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .plyr__progress input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            background: var(--accent-color);
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            margin-top: -4px;
+        }
+
+        .plyr__progress input[type="range"]::-moz-range-thumb {
+            background: var(--accent-color);
+            border: none;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
         }
 
         .plyr__time {
@@ -581,8 +622,9 @@
         .plyr__control--overlaid {
             background: var(--accent-color);
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
+            width: 80px !important; /* Фиксированная ширина */
+            height: 80px !important; /* Фиксированная высота */
+            padding: 0; /* Убираем отступы */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -635,8 +677,8 @@
             }
 
             .plyr__control--overlaid {
-                width: 60px;
-                height: 60px;
+                width: 60px !important;
+                height: 60px !important;
             }
 
             .plyr__control--overlaid svg {
@@ -646,6 +688,17 @@
 
             .plyr__time {
                 font-size: 10px;
+            }
+
+            .plyr__progress input[type="range"]::-webkit-slider-thumb {
+                width: 10px;
+                height: 10px;
+                margin-top: -3px;
+            }
+
+            .plyr__progress input[type="range"]::-moz-range-thumb {
+                width: 10px;
+                height: 10px;
             }
         }
 
@@ -685,8 +738,8 @@
             }
 
             .plyr__control--overlaid {
-                width: 50px;
-                height: 50px;
+                width: 50px !important;
+                height: 50px !important;
             }
 
             .plyr__control--overlaid svg {
@@ -696,6 +749,17 @@
 
             .plyr__time {
                 font-size: 8px;
+            }
+
+            .plyr__progress input[type="range"]::-webkit-slider-thumb {
+                width: 8px;
+                height: 8px;
+                margin-top: -2px;
+            }
+
+            .plyr__progress input[type="range"]::-moz-range-thumb {
+                width: 8px;
+                height: 8px;
             }
         }
 
@@ -996,7 +1060,7 @@
             </p>
             <div class="video-section__player">
                 <video id="plyr-video" class="plyr-video" poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1230&q=80" playsinline>
-                    <source src="https://videos.pexels.com/video-files/854626/854626-hd_1920_1080_24fps.mp4" type="video/mp4">
+                    <source src="https://download.samplelib.com/mp4/sample-5s.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <button class="video-section__play-btn" aria-label="Play video"></button>
