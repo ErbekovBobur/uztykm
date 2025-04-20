@@ -499,6 +499,82 @@
             clip: rect(0 0 0 0);
         }
 
+        /* Стили для раздела Video */
+        .video-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .video-section__title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
+        .video-section__descr {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .video-section__player {
+            position: relative;
+            width: 100%;
+            max-width: 1230px;
+            height: 671px;
+            margin: 0 auto;
+        }
+
+        .video-section__player video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-section__play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .video-section__play-btn.hidden {
+            display: none;
+        }
+
+        .video-section__play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: #fc3a0e;
+        }
+
+        .video-section__play-btn::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 24px solid var(--white);
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 8px;
+        }
+
         @media (max-width: 1024px) {
             .nav {
                 display: none;
@@ -510,6 +586,34 @@
             
             .desktop-only {
                 display: none !important;
+            }
+            
+            .mobile-only {
+                display: block !important;
+            }
+
+            .video-section__player {
+                height: 500px;
+            }
+
+            .video-section__title {
+                font-size: 36px;
+            }
+
+            .video-section__descr {
+                font-size: 16px;
+            }
+
+            .video-section__play-btn {
+                width: 60px;
+                height: 60px;
+            }
+
+            .video-section__play-btn::before {
+                border-left: 18px solid var(--white);
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                margin-left: 6px;
             }
         }
 
@@ -531,6 +635,34 @@
                 font-size: 16px;
                 padding: 8px 12px;
             }
+
+            .video-section {
+                padding: 40px 0;
+            }
+
+            .video-section__player {
+                height: 300px;
+            }
+
+            .video-section__title {
+                font-size: 28px;
+            }
+
+            .video-section__descr {
+                font-size: 14px;
+            }
+
+            .video-section__play-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            .video-section__play-btn::before {
+                border-left: 14px solid var(--white);
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                margin-left: 5px;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -544,11 +676,11 @@
             }
             
             .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 8px);
+                transform: rotate(45deg) translate(6px, 9px);
             }
             
             .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -8px);
+                transform: rotate(-45deg) translate(6px, -9px);
             }
             
             .mobile-menu {
@@ -634,6 +766,10 @@
             .mobile-menu {
                 display: none !important;
             }
+            
+            .mobile-only {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -668,7 +804,6 @@
                             <ul class="dropdown">
                                 <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_mission">Bizning missiyamiz</a></li>
                                 <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_team">Jamoamiz</a></li>
-                                <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_gallery">Fotogalareya</a></li>
                                 <li class="dropdown__item"><a href="#" class="dropdown__link" data-key="menu_about_history">Tariximiz</a></li>
                             </ul>
                         </li>
@@ -718,7 +853,6 @@
                             <ul class="mobile-menu__dropdown">
                                 <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_mission">Bizning missiyamiz</a></li>
                                 <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_team">Jamoamiz</a></li>
-                                <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_gallery">Fotogalareya</a></li>
                                 <li class="mobile-menu__dropdown-item"><a href="#" class="mobile-menu__dropdown-link" data-key="menu_about_history">Tariximiz</a></li>
                             </ul>
                         </li>
@@ -819,6 +953,24 @@
             </div>
         </div>
     </section>
+
+    <!-- Раздел Video с временным видео -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="video-section__title" data-key="video_title">We are Cretex Construction Bureau</h2>
+            <p class="video-section__descr" data-key="video_description">
+                We are rightfully considered to be the best construction company in the USA.
+            </p>
+            <div class="video-section__player">
+                <video controls id="videoPlayer" poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1230&q=80">
+                    <source src="https://download.samplelib.com/mp4/sample-5s.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!--<button class="video-section__play-btn" aria-label="Play video"></button>-->
+            </div>
+        </div>
+    </section>
+
     <section>
         <p id="width"></p>
     </section>
@@ -841,7 +993,6 @@
                     menu_about: "Biz haqimizda",
                     menu_about_mission: "Bizning missiyamiz",
                     menu_about_team: "Jamoamiz",
-                    menu_about_gallery: "Fotogalareya",
                     menu_about_history: "Tariximiz",
                     menu_services: "Xizmatlar",
                     menu_services_construction: "Qurilish xizmatlari",
@@ -856,11 +1007,13 @@
                     hero_description_2: "Bizning tajribali mutaxassislar jamoasi loyihangizni o'z vaqtida va yuqori sifatda bajaradi.",
                     hero_description_3: "Innovatsion yechimlar va zamonaviy texnologiyalar yordamida qurilishning yangi darajasini kashf eting.",
                     btn_learn_more: "Biz haqimizda ko'proq bilib oling",
-                    btn_request: "So'rov yuborish"
+                    btn_request: "So'rov yuborish",
+                    video_title: "Biz Cretex Qurilish Byurosimiz",
+                    video_description: "Biz AQShdagi eng yaxshi qurilish kompaniyasi sifatida haqli ravishda tan olinganmiz."
                 },
                 ru: {
-                    title: "O'ztemiryo'lqurilishmontaj MCHJ",
-                    logo: "O'ztemiryo'lqurilishmontaj",
+                    title: "Озтемирыолкурилишмонтаж",
+                    logo: "Озтемирыолкурилишмонтаж",
                     menu_home: "Главная",
                     menu_home_history: "История предприятия",
                     menu_home_functions: "Функции и задачи",
@@ -872,7 +1025,6 @@
                     menu_about: "О нас",
                     menu_about_mission: "Наша миссия",
                     menu_about_team: "Наша команда",
-                    menu_about_gallery:"Фотогалерея",
                     menu_about_history: "Наша история",
                     menu_services: "Услуги",
                     menu_services_construction: "Строительные услуги",
@@ -881,13 +1033,15 @@
                     menu_news: "Новости",
                     menu_contact: "Контакты",
                     contact_phone_label: "Позвоните нам",
-                    hero_title: "O'ztemiryo'lqurilishmontaj",
-                    hero_subtitle: " MCHJ",
+                    hero_title: "Озтемирыолкурилишмонтаж",
+                    hero_subtitle: " МЧЖ",
                     hero_description_1: "Мы предоставляем высококачественные строительные услуги. Реализуйте ваши проекты с нашей профессиональной командой.",
                     hero_description_2: "Наша команда опытных специалистов выполнит ваш проект вовремя и с высоким качеством.",
                     hero_description_3: "Откройте новый уровень строительства с помощью инновационных решений и современных технологий.",
                     btn_learn_more: "Узнать больше о нас",
-                    btn_request: "Отправить запрос"
+                    btn_request: "Отправить запрос",
+                    video_title: "Мы — Cretex Construction Bureau",
+                    video_description: "Мы по праву считаемся лучшей строительной компанией в США."
                 }
             };
 
@@ -903,7 +1057,7 @@
                 document.querySelector('meta[name="description"]').setAttribute('content', 
                     lang === 'uz' 
                         ? "O'ztemiryo'lqurilishmontaj MCHJ - O'zbekistonda professional qurilish xizmatlari"
-                        : "O'ztemiryo'lqurilishmontaj MCHJ - профессиональные строительные услуги в Узбекистане"
+                        : "Озтемирыолкурилишмонтаж МЧЖ - профессиональные строительные услуги в Узбекистане"
                 );
             }
 
@@ -1013,6 +1167,29 @@
                         closeMobileMenu();
                     }
                 });
+            });
+
+            // Логика управления видео
+            const video = document.getElementById('videoPlayer');
+            const playBtn = document.querySelector('.video-section__play-btn');
+
+            playBtn.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    playBtn.classList.add('hidden');
+                }
+            });
+
+            video.addEventListener('play', () => {
+                playBtn.classList.add('hidden');
+            });
+
+            video.addEventListener('pause', () => {
+                playBtn.classList.remove('hidden');
+            });
+
+            video.addEventListener('ended', () => {
+                playBtn.classList.remove('hidden');
             });
 
             // Обновление ширины окна при изменении размера
