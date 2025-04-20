@@ -9,9 +9,9 @@
     <title data-key="title">O'ztemiryo'lqurilishmontaj</title>
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
-  
+
 
     <style>
         * {
@@ -26,7 +26,8 @@
             --text-color: #1E212C;
             --light-text: #787A80;
             --white: #fff;
---plyr-color-main: #ff5a30; /* оранжевый из макета */
+            --plyr-color-main: #ff5a30;
+            /* оранжевый из макета */
         }
 
         body {
@@ -582,32 +583,35 @@
             border-bottom: 14px solid transparent;
             margin-left: 8px;
         }
-/*Plyr*/
-.plyr__video-wrapper {
-    border-radius: 12px; /* мягкое скругление */
-    overflow: hidden;
-  }
 
-  .plyr--full-ui input[type=range] {
-    height: 4px;
-    border-radius: 2px;
-  }
+        /*Plyr*/
+        .plyr__video-wrapper {
+            border-radius: 12px;
+            /* мягкое скругление */
+            overflow: hidden;
+        }
 
-  /* Стилизуем кнопку Play */
-  .plyr__play-large {
-    background: rgba(255, 255, 255, 0.9);
-    color: #ff5a30;
-    border-radius: 50%;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    width: 80px;
-    height: 80px;
-    transition: transform 0.2s ease;
-  }
+        .plyr--full-ui input[type=range] {
+            height: 4px;
+            border-radius: 2px;
+        }
 
-  .plyr__play-large:hover {
-    transform: scale(1.05);
-  }
-/*======== plyr end ========*/
+        /* Стилизуем кнопку Play */
+        .plyr__play-large {
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff5a30;
+            border-radius: 50%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            width: 80px;
+            height: 80px;
+            transition: transform 0.2s ease;
+        }
+
+        .plyr__play-large:hover {
+            transform: scale(1.05);
+        }
+
+        /*======== plyr end ========*/
         /* Стилизация элементов управления видео */
         .video-section__player video::-webkit-media-controls-panel {
             background-color: rgba(30, 33, 44, 0.9);
@@ -1134,14 +1138,15 @@
     </section>-->
     <section class="video-section">
         <div class="container">
-        <div class="video-section__player">
-        <!-- plyr html start-->
+            
+            <div class="video-section__player">
+                <!-- plyr html start-->
 
-<video id="player" controls playsinline poster="poster.jpg">
-  <source src="video.mp4" type="video/mp4" />
-</video>
-<!--plyr html end-->
-           <!-- <video id="videoPlayer" class="video-js vjs-default-skin" poster="..." controls>
+                <video id="player" controls playsinline poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1230&q=80">
+                    <source src="https://download.samplelib.com/mp4/sample-5s.mp4" type="video/mp4" />
+                </video>
+                <!--plyr html end-->
+                <!-- <video id="videoPlayer" class="video-js vjs-default-skin" poster="..." controls>
                 <source src="https://download.samplelib.com/mp4/sample-10s.mp4" type="video/mp4">
             </video>
 -->
@@ -1152,12 +1157,12 @@
     <section>
         <p id="width"></p>
     </section>
-<!---plyr script start-->
-<script> src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-<script>
+    <!---plyr script start-->
+    <script> src = "https://cdn.plyr.io/3.7.8/plyr.js" ></script>
+    <script>
   const player = new Plyr('#player');
-</script>
-<!--plyr script end-->
+    </script>
+    <!--plyr script end-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
     <script>
