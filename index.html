@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <div class="header__inner">
                 <a href="/" class="logo" data-key="logo">O'ztemiryo'lqurilishmontaj</a>
@@ -142,7 +142,7 @@
             <div class="swiper-pagination hero__pag"></div>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="hero-slide" style="background-image: url('https://sayt.tstu.uz/storage/app/public/images/2023-01-17/ccUOpH4IWMN7AZ0vuvuHPLbcYsc3zKOSOaw4oo0Q.jpg');">
                         <div class="container">
                             <div class="hero__content">
                                 <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="hero-slide" style="background-image: url('https://image.jimcdn.com/app/cms/image/transf/dimension=1920x10000:format=jpg/path/s0b821bbc2574ae85/image/i822b8c7bd6a3473a/version/1589128293/assurance-transport-ferroviaire-marchandises-transport%C3%A9es.jpg');">
                         <div class="container">
                             <div class="hero__content">
                                 <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="hero-slide" style="background-image: url('https://storage.kun.uz/source/10/mYUZAK2Nb-_irfB_D07uPp342kGwsYnU.jpg');">
                         <div class="container">
                             <div class="hero__content">
                                 <h1 class="main-title main-title--home" data-key="hero_title">O'ztemiryo'lqurilishmontaj<span data-key="hero_subtitle"> MCHJ</span></h1>
@@ -198,16 +198,15 @@
             <h2 class="video-section__title" data-key="video_title">Biz O'ztemiryo'lqurilishmontaj MCHJ qurilish kompaniyasimiz</h2>
             <p class="video-section__descr" data-key="video_description">
                 Biz O'zbekistondagi eng yaxshi qurilish kompaniyalaridan biri sifatida tan olinganmiz.
-            </p>
-            <div class="video-section__player">
-                <video id="plyr-video" class="plyr-video" poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1230&q=80" playsinline>
-                    <source src="https://download.samplelib.com/mp4/sample-5s.mp4" type="video/mp4">
-                    <!--<track src="/subtitles-uz.vtt" kind="subtitles" srclang="uz" label="O'zbekcha">
-                    <track src="/subtitles-ru.vtt" kind="subtitles" srclang="ru" label="Русский">-->
-                    Your browser does not support the video tag.
-                </video>
-                <button class="video-section__play-btn" aria-label="Play video"></button>
-            </div>
+            </p>            
+            <div class="plyr__video-embed" id="player">
+                <iframe
+                  src="https://youtu.be/hj-geoIGmGM"
+                  allowfullscreen
+                  allowtransparency
+                  allow="autoplay"
+                ></iframe>
+              </div>
         </div>
     </section>
 
@@ -500,6 +499,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const player = new Plyr('#player');
+        });
+      </script>
     <script src="script.js"></script>
 </body>
 </html>
