@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Createx Construction Slider</title>
+    <!-- Подключаем Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        :root {
+            --accent-color: #FF5A30; /* Оранжевый цвет как пример */
+            --text-color: #fff;
+        }
+        
+        /* Стили для героя */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            color: var(--text-color);
+        }
+        
+        .hero-slider {
+            height: 100%;
+        }
+        
+        .hero-slide {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-color: #1E212C; /* Темный фон как пример */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .hero__content {
+            max-width: 600px;
+        }
+        
+        .main-title {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        
+        .main-title span {
+            color: var(--accent-color);
+        }
+        
+        .main-descr {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+        
+        .hero__btns {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .btn--fill {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+        
+        .btn--fill:hover {
+            background-color: #fc3a0e;
+        }
+        
+        .btn--stroke {
+            background-color: transparent;
+            border: 1px solid currentColor;
+            color: var(--text-color);
+        }
+        
+        .btn--stroke:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Навигация слайдера */
+        .slider-nav__btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            color: #fff;
+        }
+        
+        .slider-nav__btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .slider-nav__btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .hero__prev {
+            left: 30px;
+        }
+        
+        .hero__next {
+            right: 30px;
+        }
+        
+        .swiper-pagination {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .swiper-pagination-bullet {
+            width: 30px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--accent-color);
+        }
+        
+        .hero__bar {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: #fff;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+            clip: rect(0 0 0 0);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1 class="visually-hidden">Строительное бюро Createx</h1>
+        <div class="hero-slider swiper">
+            <!-- Кнопки навигации -->
+            <button class="slider-nav__btn hero__prev" aria-label="Предыдущий слайд">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 18L8 12L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="slider-nav__btn hero__next" aria-label="Следующий слайд">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 18L16 12L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <!-- Пагинация -->
+            <div class="swiper-pagination hero__pag"></div>
+
+            <!-- Слайды -->
+            <div class="swiper-wrapper">
+                <!-- Слайд 1 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="container">
+                            <div class="hero__content">
+                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
+                                <p class="main-descr main-descr--home">
+                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                                </p>
+                                <div class="hero__btns">
+                                    <button class="btn btn--stroke">Узнайте больше о нас</button>
+                                    <button class="btn btn--fill">Отправить запрос</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Слайд 2 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="container">
+                            <div class="hero__content">
+                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
+                                <p class="main-descr main-descr--home">
+                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                                </p>
+                                <div class="hero__btns">
+                                    <button class="btn btn--stroke">Узнайте больше о нас</button>
+                                    <button class="btn btn--fill">Отправить запрос</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Слайд 3 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="container">
+                            <div class="hero__content">
+                                <h1 class="main-title main-title--home">Create<span>x</span> Construction</h1>
+                                <p class="main-descr main-descr--home">
+                                    Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                                </p>
+                                <div class="hero__btns">
+                                    <button class="btn btn--stroke">Узнайте больше о нас</button>
+                                    <button class="btn btn--fill">Отправить запрос</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подключаем Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSlider = new Swiper('.hero-slider', {
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    renderBullet: function(index, className) {
+                        return `<span class="${className}"><span class="hero__bar"></span></span>`;
+                    },
+                },
+                navigation: {
+                    nextEl: '.hero__next',
+                    prevEl: '.hero__prev',
+                },
+                on: {
+                    init: function() {
+                        const bullets = document.querySelectorAll('.hero__bar');
+                        bullets.forEach(bullet => {
+                            bullet.style.width = '0%';
+                        });
+                        
+                        const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
+                        activeBullet.style.width = '100%';
+                    },
+                    slideChangeTransitionStart: function() {
+                        const bullets = document.querySelectorAll('.hero__bar');
+                        bullets.forEach(bullet => {
+                            bullet.style.width = '0%';
+                        });
+                    },
+                    slideChangeTransitionEnd: function() {
+                        const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
+                        activeBullet.style.width = '100%';
+                    }
+                }
+            });
+
+            // Анимация прогресс-бара пагинации
+            let interval;
+            function startProgressBar() {
+                clearInterval(interval);
+                const activeBullet = document.querySelector('.swiper-pagination-bullet-active .hero__bar');
+                if (activeBullet) {
+                    activeBullet.style.width = '0%';
+                    let width = 0;
+                    const duration = 5000; // 5 секунд
+                    const increment = 100 / (duration / 16);
+                    
+                    interval = setInterval(() => {
+                        width += increment;
+                        activeBullet.style.width = `${width}%`;
+                        
+                        if (width >= 100) {
+                            clearInterval(interval);
+                        }
+                    }, 16);
+                }
+            }
+
+            heroSlider.on('autoplayTimeLeft', () => {
+                startProgressBar();
+            });
+
+            heroSlider.on('slideChange', () => {
+                startProgressBar();
+            });
+
+            startProgressBar();
+        });
+    </script>
+</body>
+</html>
