@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     pagination: {
       el: ".hero__pag",
-      clickable: true,
+      clickable: false,
       renderBullet: (index, className) => {
         return `<span class="${className}"><span class="hero__bar"></span></span>`;
       },
@@ -475,9 +475,8 @@ document.addEventListener("DOMContentLoaded", () => {
   displayedPhotos.forEach((photo, index) => {
     const slide = document.createElement("div");
     slide.className = "swiper-slide gallery-slide";
-    slide.innerHTML = `<img src="${photo}" alt="Gallery image ${
-      index + 1
-    }" class="gallery-slide__image" data-index="${index}">`;
+    slide.innerHTML = `<img src="${photo}" alt="Gallery image ${index + 1
+      }" class="gallery-slide__image" data-index="${index}">`;
     galleryWrapper.appendChild(slide);
   });
 
@@ -618,11 +617,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // News section
 
+
+
+/*
+
+  //=============================≠==========
   // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
   const newsJsonUrl1 =
     "https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
 
-    const newsJsonUrl = "News.json";
+  const newsJsonUrl = 'News.json';
   // Variables for pagination and Swiper
   let allNews = [];
   const newsPerPage = 4;
@@ -631,19 +635,39 @@ document.addEventListener("DOMContentLoaded", () => {
   let newsSwiper;
 
   // Function to fetch news from the cloud JSON file
-  const fetchNews = async () => {
+  const fetchNews0 = async () => {
     try {
       const response = await fetch(newsJsonUrl);
       if (!response.ok) throw new Error("Failed to fetch news");
       const data = await response.json();
-
       // Sort news by date in descending order
       return data.sort((a, b) => new Date(b.date) - new Date(a.date));
     } catch (error) {
+      alert(error);
       console.error("Error fetching news:", error);
       return [];
     }
   };
+
+  const fetchNews = async () => {
+    try {
+      const response = await fetch(newsJsonUrl);
+      if (!response.ok) {
+        throw new Error(
+          `Failed to fetch news: ${response.status} ${response.statusText}`
+        );
+      }
+      const data = await response.json();
+      alert(data[0].date)
+      // Sort news by date in descending order
+      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } catch (error) {
+      console.error("Error fetching news:", error.message);
+      return []; // Return empty array to prevent breaking the app
+    }
+  };
+
+
 
   // Function to render news for the current page
   const renderNews = (newsToRender, lang = "uz") => {
@@ -719,9 +743,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Generate pagination numbers
     for (let i = 1; i <= totalPages; i++) {
       const pageButton = document.createElement("button");
-      pageButton.className = `news-pagination__number ${
-        i === currentPage ? "active" : ""
-      }`;
+      pageButton.className = `news-pagination__number ${i === currentPage ? "active" : ""
+        }`;
       pageButton.textContent = i;
       pageButton.setAttribute("aria-label", `Page ${i}`);
       pageButton.addEventListener("click", () => {
@@ -752,7 +775,11 @@ document.addEventListener("DOMContentLoaded", () => {
     totalPages = Math.ceil(allNews.length / newsPerPage);
     currentPage = 1; // Reset to first page
     updateNewsPage(lang);
-  };
+  };*/
+
+
+
+  /*
 alert(1)
   // Initial load of news
   loadInitialNews(currentLang);
@@ -779,5 +806,363 @@ alert(1)
       updateNewsPage(currentLang);
     }
   });
-  alert(0)
+  */
+ /*
+  (async () => {
+    alert(1);
+
+    try {
+      await loadInitialNews(currentLang);
+      alert('News loaded successfully');
+    } catch (error) {
+      alert('Error loading news: ' + error.message);
+      document.getElementById('newsList').innerHTML = '<p>Error loading news. Please try again later.</p>';
+    }
+
+    // Update news when language changes
+    const originalUpdateContent = updateContent; // Save the original updateContent function
+    updateContent = (lang) => {
+      originalUpdateContent(lang); // Call the original function
+      loadInitialNews(lang); // Reload news with the new language
+    };
+    alert(2);
+
+    // Event listeners for pagination navigation buttons
+    document.getElementById('newsPrevPage').addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateNewsPage(currentLang);
+      }
+    });
+
+    document.getElementById('newsNextPage').addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateNewsPage(currentLang);
+      }
+    });
+  })();
+  */
+ /*
+  // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
+  const newsJsonUrl0 = 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media';
+
+  // Fallback: define currentLang if it's not already defined
+
+
+  // Variables for pagination and Swiper
+  let allNews = [];
+  const newsPerPage = 4;
+  let currentPage = 1;
+  let totalPages = 1;
+  let newsSwiper;
+
+  // Function to fetch news from the cloud JSON file
+  const fetchNews = async () => {
+    try {
+      const response = await fetch('News.json');
+      if (!response.ok) throw new Error('Failed to fetch news');
+      const data = await response.json();
+
+      // Sort news by date in descending order
+      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } catch (error) {
+      console.error('Error fetching news:', error);
+      return [];
+    }
+  };
+
+  // Function to render news for the current page
+  const renderNews = (newsToRender, lang = 'uz') => {
+    const newsWrapper = document.getElementById('newsSwiperWrapper');
+    newsWrapper.innerHTML = ''; // Clear existing content
+
+    if (newsToRender.length === 0) {
+      newsWrapper.innerHTML = '<p>Новости не найдены или произошла ошибка при загрузке.</p>';
+      return;
+    }
+
+    newsToRender.forEach(news => {
+      const newsSlide = document.createElement('div');
+      newsSlide.className = 'swiper-slide news-slide';
+      newsSlide.innerHTML = `
+            <article class="blog-card">
+                <img src="${news.image}" alt="${news.title[lang]}" class="blog-card__image">
+                <div class="blog-card__content">
+                    <h3 class="blog-card__title">${news.title[lang]}</h3>
+                    <p class="blog-card__date">${news.date}</p>
+                    <p class="blog-card__descr">${news.description[lang]}</p>
+                </div>
+            </article>
+        `;
+      newsWrapper.appendChild(newsSlide);
+    });
+
+    // Reinitialize or update Swiper after content change
+    if (newsSwiper) {
+      newsSwiper.destroy(true, true); // Destroy previous instance
+    }
+
+    newsSwiper = new Swiper('.news-section__list', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: '.news__next',
+        prevEl: '.news__prev',
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      }
+    });
+  };
+
+  // Function to render pagination controls
+  const renderPagination = () => {
+    const paginationNumbers = document.getElementById('paginationNumbers');
+    const prevButton = document.getElementById('newsPrevPage');
+    const nextButton = document.getElementById('newsNextPage');
+
+    paginationNumbers.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement('button');
+      pageButton.className = `news-pagination__number ${i === currentPage ? 'active' : ''}`;
+      pageButton.textContent = i;
+      pageButton.setAttribute('aria-label', `Page ${i}`);
+      pageButton.addEventListener('click', () => {
+        currentPage = i;
+        updateNewsPage(currentLang);
+      });
+      paginationNumbers.appendChild(pageButton);
+    }
+
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+  };
+
+  // Function to update the news page
+  const updateNewsPage = (lang = 'uz') => {
+    const startIndex = (currentPage - 1) * newsPerPage;
+    const endIndex = startIndex + newsPerPage;
+    const newsToRender = allNews.slice(startIndex, endIndex);
+    renderNews(newsToRender, lang);
+    renderPagination();
+  };
+
+  // Function to load initial news and set up the section
+  const loadInitialNews = async (lang = 'uz') => {
+    allNews = await fetchNews();
+    totalPages = Math.ceil(allNews.length / newsPerPage);
+    currentPage = 1;
+    updateNewsPage(lang);
+  };
+
+  // Initial load of news
+  loadInitialNews(currentLang);
+
+  // Safely extend `updateContent` if it exists
+  if (typeof updateContent === 'function') {
+    const originalUpdateContent = updateContent;
+    updateContent = (lang) => {
+      originalUpdateContent(lang);
+      loadInitialNews(lang);
+    };
+  }
+
+  // Pagination buttons
+  document.getElementById('newsPrevPage').addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updateNewsPage(currentLang);
+    }
+  });
+
+  document.getElementById('newsNextPage').addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      updateNewsPage(currentLang);
+    }
+  });
+*/
+  // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
+  const newsJsonUrl0 = 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media';
+const newsJsonUrl = 'https://erbekovbobur.github.io/news-json/news.json'
+
+  // Variables for pagination and Swiper
+  let allNews = [];
+  const newsPerPage = 4;
+  let currentPage = 1;
+  let totalPages = 1;
+  let newsSwiper;
+
+  // Function to fetch news from the cloud JSON file
+  const fetchNews = async () => {
+    try {
+      console.log('Attempting to fetch news from:', newsJsonUrl);
+      const response = await fetch(newsJsonUrl);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
+      }
+      const data = await response.json();
+      console.log('News fetched successfully:', data);
+
+      // Sort news by date in descending order
+      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } catch (error) {
+      console.error('Error fetching news:', error.message);
+      return [];
+    }
+  };
+
+  // Function to render news for the current page
+  const renderNews = (newsToRender, lang = 'uz') => {
+    const newsWrapper = document.getElementById('newsSwiperWrapper');
+    newsWrapper.innerHTML = ''; // Clear existing content
+
+    if (newsToRender.length === 0) {
+      newsWrapper.innerHTML = '<p>Новости не найдены или произошла ошибка при загрузке.</p>';
+      return;
+    }
+
+    newsToRender.forEach(news => {
+      const newsSlide = document.createElement('div');
+      newsSlide.className = 'swiper-slide news-slide';
+      newsSlide.innerHTML = `
+            <article class="blog-card">
+                <img src="${news.image}" alt="${news.title[lang]}" class="blog-card__image">
+                <div class="blog-card__content">
+                    <h3 class="blog-card__title">${news.title[lang]}</h3>
+                    <p class="blog-card__date">${news.date}</p>
+                    <p class="blog-card__descr">${news.description[lang]}</p>
+                </div>
+            </article>
+        `;
+      newsWrapper.appendChild(newsSlide);
+    });
+
+    // Reinitialize or update Swiper after content change
+    if (newsSwiper) {
+      newsSwiper.destroy(true, true); // Destroy previous instance
+    }
+
+    newsSwiper = new Swiper('.news-section__list', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: '.news__next',
+        prevEl: '.news__prev',
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      }
+    });
+  };
+
+  // Function to render pagination controls
+  const renderPagination = () => {
+    const paginationNumbers = document.getElementById('paginationNumbers');
+    const prevButton = document.getElementById('newsPrevPage');
+    const nextButton = document.getElementById('newsNextPage');
+
+    paginationNumbers.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement('button');
+      pageButton.className = `news-pagination__number ${i === currentPage ? 'active' : ''}`;
+      pageButton.textContent = i;
+      pageButton.setAttribute('aria-label', `Page ${i}`);
+      pageButton.addEventListener('click', () => {
+        currentPage = i;
+        updateNewsPage(currentLang);
+      });
+      paginationNumbers.appendChild(pageButton);
+    }
+
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+  };
+
+  // Function to update the news page
+  const updateNewsPage = (lang = 'uz') => {
+    const startIndex = (currentPage - 1) * newsPerPage;
+    const endIndex = startIndex + newsPerPage;
+    const newsToRender = allNews.slice(startIndex, endIndex);
+    renderNews(newsToRender, lang);
+    renderPagination();
+  };
+
+  // Function to load initial news and set up the section
+  const loadInitialNews = async (lang = 'uz') => {
+    allNews = await fetchNews();
+    totalPages = Math.ceil(allNews.length / newsPerPage);
+    currentPage = 1;
+    updateNewsPage(lang);
+  };
+
+  // Wrap everything in an async IIFE to handle errors properly
+  (async () => {
+    try {
+      await loadInitialNews(currentLang);
+    } catch (error) {
+      console.error('Failed to load initial news:', error.message);
+      const newsWrapper = document.getElementById('newsSwiperWrapper');
+      newsWrapper.innerHTML = '<p>Ошибка загрузки новостей. Пожалуйста, попробуйте позже.</p>';
+    }
+
+    // Safely extend `updateContent` if it exists
+    if (typeof updateContent === 'function') {
+      const originalUpdateContent = updateContent;
+      updateContent = (lang) => {
+        originalUpdateContent(lang);
+        loadInitialNews(lang);
+      };
+    } else {
+      console.warn('updateContent function is not defined. Language updates for news will not work.');
+    }
+
+    // Pagination buttons
+    document.getElementById('newsPrevPage').addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateNewsPage(currentLang);
+      }
+    });
+
+    document.getElementById('newsNextPage').addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateNewsPage(currentLang);
+      }
+    });
+  })();
 });

@@ -6,7 +6,7 @@
             "uz": "Shahar markazida yangi bog' ochildi"
         },
         "date": "2025-04-20",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/600/400",
         "description": {
             "ru": "В центре города торжественно открылся новый городской парк с фонтанами и зонами отдыха.",
             "uz": "Shahar markazida favvorali va dam olish zonalari bo‘lgan yangi bog‘ ochildi."
@@ -15,24 +15,24 @@
     {
         "id": 2,
         "title": {
-            "ru": "Повышение цен на бензин с мая",
-            "uz": "May oyidan benzin narxi oshadi"
+            "ru": "Повышение цен на топливо.",
+            "uz": "Yoqilg‘i narxi ko‘tariladi."
         },
         "date": "2025-04-21",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/800/400",
         "description": {
-            "ru": "С 1 мая ожидается повышение цен на топливо на 10% из-за роста мировых цен.",
-            "uz": "1-maydan boshlab yoqilg‘i narxi global narxlar oshgani sababli 10% ga ko‘tariladi."
+            "ru": "RU Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis obcaecati unde ipsum et magni repellendus cumque eum quibusdam dolorem ad culpa veritatis recusandae dolorum, natus suscipit dicta libero at.",
+            "uz": "Uz Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis obcaecati unde ipsum et magni repellendus cumque eum quibusdam dolorem ad culpa veritatis recusandae dolorum, natus suscipit dicta libero at."
         }
     },
     {
         "id": 3,
         "title": {
             "ru": "Школьники выиграли олимпиаду по математике",
-            "uz": "O‘quvchilar matematika olimpiadasida g‘olib bo‘lishdi"
+            "uz": "O‘quvchilar matematika olimpiadasida g‘olib bo‘lishdi lorem6"
         },
         "date": "2025-04-19",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/700/500",
         "description": {
             "ru": "Команда школьников из Ташкента заняла первое место на международной олимпиаде.",
             "uz": "Toshkentlik o‘quvchilar xalqaro olimpiadada birinchi o‘rinni egalladi."
@@ -45,7 +45,7 @@
             "uz": "O‘zbekistonda yomg‘irlar mavsumi boshlandi"
         },
         "date": "2025-04-18",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/600/400",
         "description": {
             "ru": "Синоптики прогнозируют обильные осадки по всей территории страны в ближайшие недели.",
             "uz": "Sinoptiklar yaqin haftalarda butun mamlakat bo‘ylab kuchli yog‘ingarchilik bo‘lishini bashorat qilmoqda."
@@ -58,7 +58,7 @@
             "uz": "Toshkentda yangi ta'lim markazi ochildi"
         },
         "date": "2025-04-17",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/600/400",
         "description": {
             "ru": "В столице открылся современный образовательный центр, оснащённый новейшими технологиями.",
             "uz": "Poytaxtda zamonaviy ta'lim markazi ochildi, u eng so'nggi texnologiyalar bilan jihozlangan."
@@ -71,7 +71,7 @@
             "uz": "O‘zbekistonda yangi sayyohlik yo‘nalishi boshlandi"
         },
         "date": "2025-04-16",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/600/400",
         "description": {
             "ru": "Министерство туризма представило новый маршрут, охватывающий исторические памятники страны.",
             "uz": "Turizm vazirligi mamlakatning tarixiy yodgorliklarini o‘z ichiga olgan yangi yo‘nalishni taqdim etdi."
@@ -84,7 +84,7 @@
             "uz": "Toshkentda xalqaro kinofestival bo‘lib o‘tdi"
         },
         "date": "2025-04-15",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/600/400",
         "description": {
             "ru": "В столице завершился кинофестиваль, на котором были представлены фильмы из 20 стран.",
             "uz": "Poytaxtda 20 mamlakatdan filmlar taqdim etilgan kinofestival yakunlandi."
@@ -97,7 +97,7 @@
             "uz": "O‘zbekistonda YTH qoidalarini buzganlik uchun jarimalar oshirildi"
         },
         "date": "2025-04-14",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/600/400",
         "description": {
             "ru": "С 1 июня вступают в силу новые штрафы за нарушение правил дорожного движения.",
             "uz": "1-iyundan boshlab yangi yo‘l harakati qoidalarini buzganlik uchun jarimalar kuchga kiradi."
@@ -110,10 +110,23 @@
             "uz": "Toshkentda yangi zamonaviy san'at muzeyi ochildi"
         },
         "date": "2025-04-13",
-        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "image": "https://picsum.photos/600/400",
         "description": {
             "ru": "В столице открылся музей, посвящённый современному искусству и дизайну.",
             "uz": "Poytaxtda zamonaviy san'at va dizaynga bag‘ishlangan muzey ochildi."
+        }
+    },
+    {
+        "id": 10,
+        "title": {
+            "ru": "В Ташкенте прошёл марафон с участием 5000 человек",
+            "uz": "Toshkentda 5000 ishtirokchili marafon bo‘lib o‘tdi"
+        },
+        "date": "2025-04-12",
+        "image": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b",
+        "description": {
+            "ru": "На улицах столицы прошёл ежегодный весенний марафон, в котором приняли участие более 5000 человек.",
+            "uz": "Poytaxt ko‘chalarida 5000 dan ortiq ishtirokchi qatnashgan bahorgi an'anaviy marafon o‘tkazildi."
         }
     }
 ]
