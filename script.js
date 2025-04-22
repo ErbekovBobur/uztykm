@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Plyr Video Player
 
-    const player = new Plyr("#player");
+  const player = new Plyr("#player");
 
   /*const player = new Plyr("#plyr-video", {*/
-    /* controls: [
+  /* controls: [
         "play-large",
         "play",
         "progress",
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "settings",
         "fullscreen",
       ],*/
-    /*controls: [
+  /*controls: [
       "play-large",
       "play",
       "progress",
@@ -391,7 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-    // Закрытие меню по клику на пункт подменю (не toggle) 
+    // Закрытие меню по клику на пункт подменю (не toggle)
     document
       .querySelectorAll(".mobile-menu__dropdown-link")
       .forEach((subLink) => {
@@ -533,13 +533,13 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     },
     //on: {
-      //init: () => {
-     //   gallerySwiper.update();
-   //   },
+    //init: () => {
+    //   gallerySwiper.update();
+    //   },
     //  resize: () => {
-     //   gallerySwiper.update();
-     // },
-   // },
+    //   gallerySwiper.update();
+    // },
+    // },
   });
   gallerySwiper.on("init", () => {
     gallerySwiper.update();
@@ -616,82 +616,101 @@ document.addEventListener("DOMContentLoaded", () => {
   translations.ru.gallery_description =
     "Посмотрите фотографии наших лучших проектов.";
 
-    // Blog Posts Array (can be expanded dynamically)
-    const blogPosts = [
-      {
-          image: "https://via.placeholder.com/400x300?text=Blog+1",
-          titleKey: "blog_1_title",
-          dateKey: "blog_1_date",
-          descriptionKey: "blog_1_description",
-      },
-      {
-          image: "https://via.placeholder.com/400x300?text=Blog+2",
-          titleKey: "blog_2_title",
-          dateKey: "blog_2_date",
-          descriptionKey: "blog_2_description",
-      },
-      {
-          image: "https://via.placeholder.com/400x300?text=Blog+3",
-          titleKey: "blog_3_title",
-          dateKey: "blog_3_date",
-          descriptionKey: "blog_3_description",
-      },
-  ];
+  // News section
 
-  // Function to render blog posts
-  const renderBlogPosts = (lang = "uz") => {
-    const blogList = document.getElementById("blogList");
-    blogList.innerHTML = ""; // Clear existing content
-  
-    blogPosts.forEach((post) => {
-      const blogCard = document.createElement("article");
-      blogCard.className = "blog-card";
-      blogCard.innerHTML = `<img src="${post.image}" alt="${
-        translations[lang][post.titleKey]
-      }" class="blog-card__image"><div class="blog-card__content"><h3 class="blog-card__title">${
-        translations[lang][post.titleKey]
-      }</h3><p class="blog-card__date">${translations[lang][post.dateKey]}</p><p class="blog-card__descr">${
-        translations[lang][post.descriptionKey]
-      }</p></div>`;
-      blogList.appendChild(blogCard);
+  // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
+  const newsJsonUrl =
+    "https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
+
+  // Variables to manage news display
+  let allNews = [];
+  let displayedNewsCount = 0;
+  const newsPerLoad = 4;
+
+  // Function to fetch news from the cloud JSON file
+  const fetchNews = async () => {
+    try {
+      const response = await fetch(newsJsonUrl);
+      if (!response.ok) throw new Error("Failed to fetch news");
+      const data = await response.json();
+
+      // Sort news by date in descending order
+      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } catch (error) {
+      console.error("Error fetching news:", error);
+      return [];
+    }
+  };
+
+  // Function to render news
+  const renderNews = (newsToRender, lang = "uz") => {
+    const newsList = document.getElementById("newsList");
+    newsToRender.forEach((news) => {
+      const newsCard = document.createElement("article");
+      newsCard.className = "blog-card"; // Reusing blog-card styles
+      newsCard.innerHTML = `
+            <img src="${news.image}" alt="${news.title[lang]}" class="blog-card__image">
+            <div class="blog-card__content">
+                <h3 class="blog-card__title">${news.title[lang]}</h3>
+                <p class="blog-card__date">${news.date}</p>
+                <p class="blog-card__descr">${news.description[lang]}</p>
+            </div>
+        `;
+      newsList.appendChild(newsCard);
     });
+
+    // Update displayed news count
+    displayedNewsCount += newsToRender.length;
+
+    // Show or hide the "Load More" button
+    const loadMoreButton = document.getElementById("loadMoreNews");
+    if (displayedNewsCount < allNews.length) {
+      loadMoreButton.style.display = "block";
+    } else {
+      loadMoreButton.style.display = "none";
+    }
   };
 
-  // Function to add a new blog post
-  const addBlogPost = (image, title, date, description) => {
-      const newPostKey = `blog_${blogPosts.length + 1}`;
-      blogPosts.push({
-          image: image,
-          titleKey: `${newPostKey}_title`,
-          dateKey: `${newPostKey}_date`,
-          descriptionKey: `${newPostKey}_description`,
-      });
-
-      // Add translations for the new post
-      translations.uz[`${newPostKey}_title`] = title.uz;
-      translations.uz[`${newPostKey}_date`] = date.uz;
-      translations.uz[`${newPostKey}_description`] = description.uz;
-      translations.ru[`${newPostKey}_title`] = title.ru;
-      translations.ru[`${newPostKey}_date`] = date.ru;
-      translations.ru[`${newPostKey}_description`] = description.ru;
-
-      // Re-render blog posts with the current language
-      renderBlogPosts(currentLang);
+  // Function to load initial news and set up the section
+  const loadInitialNews = async (lang = "uz") => {
+    allNews = await fetchNews();
+    displayedNewsCount = 0; // Reset count
+    document.getElementById("newsList").innerHTML = ""; // Clear existing content
+    const initialNews = allNews.slice(0, newsPerLoad);
+    renderNews(initialNews, lang);
   };
 
-  // Initial render of blog posts
-  renderBlogPosts(currentLang);
+  // Function to load more news
+  const loadMoreNews = (lang = "uz") => {
+    const nextNews = allNews.slice(
+      displayedNewsCount,
+      displayedNewsCount + newsPerLoad
+    );
+    renderNews(nextNews, lang);
+  };
 
-  // Update blog posts when language changes
+  // Initial load of news
+  loadInitialNews(currentLang);
+
+  // Update news when language changes
   const originalUpdateContent = updateContent; // Save the original updateContent function
   updateContent = (lang) => {
-      originalUpdateContent(lang); // Call the original function
-      renderBlogPosts(lang); // Re-render blog posts with the new language
+    originalUpdateContent(lang); // Call the original function
+    loadInitialNews(lang); // Reload news with the new language
   };
-  addBlogPost(
-        'https://via.placeholder.com/400x300?text=Blog+4', // Image URL
-        { uz: "Yangi blog post", ru: "Новый пост в блоге" }, // Title
-        { uz: "25 Apr 2025", ru: "25 Апр 2025" }, // Date
-        { uz: "Bu yangi blog postining qisqacha tavsifi.", ru: "Это краткое описание нового поста в блоге." } // Description
-    );
+
+  // Event listener for "Load More" button
+  document.getElementById("loadMoreNews").addEventListener("click", () => {
+    loadMoreNews(currentLang);
+  });
+
+  // Add translations for news section
+  translations.uz.news_title = "Yangiliklar";
+  translations.uz.news_description =
+    "Qurilish sohasidagi so'nggi yangiliklardan xabardor bo'ling.";
+  translations.uz.load_more = "Yana ko'rsatish";
+  translations.ru.news_title = "Новости";
+  translations.ru.news_description =
+    "Будьте в курсе последних новостей в строительной отрасли.";
+  translations.ru.load_more = "Показать еще";
 });
