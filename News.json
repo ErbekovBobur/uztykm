@@ -1,0 +1,119 @@
+[
+    {
+        "id": 1,
+        "title": {
+            "ru": "Открытие нового парка в центре города",
+            "uz": "Shahar markazida yangi bog' ochildi"
+        },
+        "date": "2025-04-20",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "В центре города торжественно открылся новый городской парк с фонтанами и зонами отдыха.",
+            "uz": "Shahar markazida favvorali va dam olish zonalari bo‘lgan yangi bog‘ ochildi."
+        }
+    },
+    {
+        "id": 2,
+        "title": {
+            "ru": "Повышение цен на бензин с мая",
+            "uz": "May oyidan benzin narxi oshadi"
+        },
+        "date": "2025-04-21",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "С 1 мая ожидается повышение цен на топливо на 10% из-за роста мировых цен.",
+            "uz": "1-maydan boshlab yoqilg‘i narxi global narxlar oshgani sababli 10% ga ko‘tariladi."
+        }
+    },
+    {
+        "id": 3,
+        "title": {
+            "ru": "Школьники выиграли олимпиаду по математике",
+            "uz": "O‘quvchilar matematika olimpiadasida g‘olib bo‘lishdi"
+        },
+        "date": "2025-04-19",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "Команда школьников из Ташкента заняла первое место на международной олимпиаде.",
+            "uz": "Toshkentlik o‘quvchilar xalqaro olimpiadada birinchi o‘rinni egalladi."
+        }
+    },
+    {
+        "id": 4,
+        "title": {
+            "ru": "В Узбекистане начался сезон дождей",
+            "uz": "O‘zbekistonda yomg‘irlar mavsumi boshlandi"
+        },
+        "date": "2025-04-18",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "Синоптики прогнозируют обильные осадки по всей территории страны в ближайшие недели.",
+            "uz": "Sinoptiklar yaqin haftalarda butun mamlakat bo‘ylab kuchli yog‘ingarchilik bo‘lishini bashorat qilmoqda."
+        }
+    },
+    {
+        "id": 5,
+        "title": {
+            "ru": "Новый образовательный центр открылся в Ташкенте",
+            "uz": "Toshkentda yangi ta'lim markazi ochildi"
+        },
+        "date": "2025-04-17",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "В столице открылся современный образовательный центр, оснащённый новейшими технологиями.",
+            "uz": "Poytaxtda zamonaviy ta'lim markazi ochildi, u eng so'nggi texnologiyalar bilan jihozlangan."
+        }
+    },
+    {
+        "id": 6,
+        "title": {
+            "ru": "В Узбекистане стартовал новый туристический маршрут",
+            "uz": "O‘zbekistonda yangi sayyohlik yo‘nalishi boshlandi"
+        },
+        "date": "2025-04-16",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "Министерство туризма представило новый маршрут, охватывающий исторические памятники страны.",
+            "uz": "Turizm vazirligi mamlakatning tarixiy yodgorliklarini o‘z ichiga olgan yangi yo‘nalishni taqdim etdi."
+        }
+    },
+    {
+        "id": 7,
+        "title": {
+            "ru": "В Ташкенте прошёл международный кинофестиваль",
+            "uz": "Toshkentda xalqaro kinofestival bo‘lib o‘tdi"
+        },
+        "date": "2025-04-15",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "В столице завершился кинофестиваль, на котором были представлены фильмы из 20 стран.",
+            "uz": "Poytaxtda 20 mamlakatdan filmlar taqdim etilgan kinofestival yakunlandi."
+        }
+    },
+    {
+        "id": 8,
+        "title": {
+            "ru": "В Узбекистане увеличены штрафы за нарушение ПДД",
+            "uz": "O‘zbekistonda YTH qoidalarini buzganlik uchun jarimalar oshirildi"
+        },
+        "date": "2025-04-14",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "С 1 июня вступают в силу новые штрафы за нарушение правил дорожного движения.",
+            "uz": "1-iyundan boshlab yangi yo‘l harakati qoidalarini buzganlik uchun jarimalar kuchga kiradi."
+        }
+    },
+    {
+        "id": 9,
+        "title": {
+            "ru": "В Ташкенте открылся новый музей современного искусства",
+            "uz": "Toshkentda yangi zamonaviy san'at muzeyi ochildi"
+        },
+        "date": "2025-04-13",
+        "image": "https://images.unsplash.com/photo-1604079622469-6c8b7e0a6b2b",
+        "description": {
+            "ru": "В столице открылся музей, посвящённый современному искусству и дизайну.",
+            "uz": "Poytaxtda zamonaviy san'at va dizaynga bag‘ishlangan muzey ochildi."
+        }
+    }
+]

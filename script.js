@@ -619,9 +619,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // News section
 
   // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
-  const newsJsonUrl =
-    "https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
-
+  //const newsJsonUrl =
+    //"https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
+const newsJsonUrl = 'News.json';
   // Variables to manage news display
   let allNews = [];
   let displayedNewsCount = 0;
