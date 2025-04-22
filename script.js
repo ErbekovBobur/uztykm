@@ -619,14 +619,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // News section
 
   // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
-  const newsJsonUrl =
+  const newsJsonUrl1 =
     "https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
 
-  // Variables for pagination
+    const newsJsonUrl = "News.json";
+  // Variables for pagination and Swiper
   let allNews = [];
   const newsPerPage = 4;
   let currentPage = 1;
   let totalPages = 1;
+  let newsSwiper;
 
   // Function to fetch news from the cloud JSON file
   const fetchNews = async () => {
@@ -645,28 +647,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to render news for the current page
   const renderNews = (newsToRender, lang = "uz") => {
-    const newsList = document.getElementById("newsList");
-    newsList.innerHTML = ""; // Clear existing content
+    const newsWrapper = document.getElementById("newsSwiperWrapper");
+    newsWrapper.innerHTML = ""; // Clear existing content
+
     newsToRender.forEach((news) => {
-      const newsCard = document.createElement("article");
-      newsCard.className = "blog-card"; // Reusing blog-card styles
-      newsCard.innerHTML = `
-            <img src="${news.image}" alt="${news.title[lang]}" class="blog-card__image">
-            <div class="blog-card__content">
-                <h3 class="blog-card__title">${news.title[lang]}</h3>
-                <p class="blog-card__date">${news.date}</p>
-                <p class="blog-card__descr">${news.description[lang]}</p>
-            </div>
+      const newsSlide = document.createElement("div");
+      newsSlide.className = "swiper-slide news-slide";
+      newsSlide.innerHTML = `
+            <article class="blog-card">
+                <img src="${news.image}" alt="${news.title[lang]}" class="blog-card__image">
+                <div class="blog-card__content">
+                    <h3 class="blog-card__title">${news.title[lang]}</h3>
+                    <p class="blog-card__date">${news.date}</p>
+                    <p class="blog-card__descr">${news.description[lang]}</p>
+                </div>
+            </article>
         `;
-      newsList.appendChild(newsCard);
+      newsWrapper.appendChild(newsSlide);
+    });
+
+    // Reinitialize or update Swiper after content change
+    if (newsSwiper) {
+      newsSwiper.destroy(true, true); // Destroy previous instance
+    }
+
+    newsSwiper = new Swiper(".news-section__list", {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".news__next",
+        prevEl: ".news__prev",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      },
+      on: {
+        init: () => {
+          newsSwiper.update();
+        },
+        resize: () => {
+          newsSwiper.update();
+        },
+      },
     });
   };
 
   // Function to render pagination controls
   const renderPagination = () => {
     const paginationNumbers = document.getElementById("paginationNumbers");
-    const prevButton = document.getElementById("newsPrev");
-    const nextButton = document.getElementById("newsNext");
+    const prevButton = document.getElementById("newsPrevPage");
+    const nextButton = document.getElementById("newsNextPage");
 
     // Clear existing pagination numbers
     paginationNumbers.innerHTML = "";
@@ -718,15 +763,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadInitialNews(lang); // Reload news with the new language
   };
 
-  // Event listeners for navigation buttons
-  document.getElementById("newsPrev").addEventListener("click", () => {
+  // Event listeners for pagination navigation buttons
+  document.getElementById("newsPrevPage").addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
       updateNewsPage(currentLang);
     }
   });
 
-  document.getElementById("newsNext").addEventListener("click", () => {
+  document.getElementById("newsNextPage").addEventListener("click", () => {
     if (currentPage < totalPages) {
       currentPage++;
       updateNewsPage(currentLang);
