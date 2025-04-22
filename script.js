@@ -745,6 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPagination();
   };
 
+
   // Function to load initial news and set up the section
   const loadInitialNews = async (lang = "uz") => {
     allNews = await fetchNews();
@@ -752,16 +753,17 @@ document.addEventListener("DOMContentLoaded", () => {
     currentPage = 1; // Reset to first page
     updateNewsPage(lang);
   };
-
+alert(1)
   // Initial load of news
   loadInitialNews(currentLang);
-
   // Update news when language changes
   const originalUpdateContent = updateContent; // Save the original updateContent function
   updateContent = (lang) => {
+    alert(763);
     originalUpdateContent(lang); // Call the original function
     loadInitialNews(lang); // Reload news with the new language
   };
+  alert(2)
 
   // Event listeners for pagination navigation buttons
   document.getElementById("newsPrevPage").addEventListener("click", () => {
@@ -777,4 +779,5 @@ document.addEventListener("DOMContentLoaded", () => {
       updateNewsPage(currentLang);
     }
   });
+  alert(0)
 });
