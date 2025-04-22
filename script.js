@@ -619,13 +619,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // News section
 
   // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
-  //const newsJsonUrl =
-    //"https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
-const newsJsonUrl = 'News.json';
-  // Variables to manage news display
+  const newsJsonUrl =
+    "https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
+
+  // Variables for pagination
   let allNews = [];
-  let displayedNewsCount = 0;
-  const newsPerLoad = 4;
+  const newsPerPage = 4;
+  let currentPage = 1;
+  let totalPages = 1;
 
   // Function to fetch news from the cloud JSON file
   const fetchNews = async () => {
@@ -642,9 +643,10 @@ const newsJsonUrl = 'News.json';
     }
   };
 
-  // Function to render news
+  // Function to render news for the current page
   const renderNews = (newsToRender, lang = "uz") => {
     const newsList = document.getElementById("newsList");
+    newsList.innerHTML = ""; // Clear existing content
     newsToRender.forEach((news) => {
       const newsCard = document.createElement("article");
       newsCard.className = "blog-card"; // Reusing blog-card styles
@@ -658,35 +660,52 @@ const newsJsonUrl = 'News.json';
         `;
       newsList.appendChild(newsCard);
     });
+  };
 
-    // Update displayed news count
-    displayedNewsCount += newsToRender.length;
+  // Function to render pagination controls
+  const renderPagination = () => {
+    const paginationNumbers = document.getElementById("paginationNumbers");
+    const prevButton = document.getElementById("newsPrev");
+    const nextButton = document.getElementById("newsNext");
 
-    // Show or hide the "Load More" button
-    const loadMoreButton = document.getElementById("loadMoreNews");
-    if (displayedNewsCount < allNews.length) {
-      loadMoreButton.style.display = "block";
-    } else {
-      loadMoreButton.style.display = "none";
+    // Clear existing pagination numbers
+    paginationNumbers.innerHTML = "";
+
+    // Generate pagination numbers
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.className = `news-pagination__number ${
+        i === currentPage ? "active" : ""
+      }`;
+      pageButton.textContent = i;
+      pageButton.setAttribute("aria-label", `Page ${i}`);
+      pageButton.addEventListener("click", () => {
+        currentPage = i;
+        updateNewsPage(currentLang);
+      });
+      paginationNumbers.appendChild(pageButton);
     }
+
+    // Enable/disable navigation buttons
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+  };
+
+  // Function to update the news page
+  const updateNewsPage = (lang = "uz") => {
+    const startIndex = (currentPage - 1) * newsPerPage;
+    const endIndex = startIndex + newsPerPage;
+    const newsToRender = allNews.slice(startIndex, endIndex);
+    renderNews(newsToRender, lang);
+    renderPagination();
   };
 
   // Function to load initial news and set up the section
   const loadInitialNews = async (lang = "uz") => {
     allNews = await fetchNews();
-    displayedNewsCount = 0; // Reset count
-    document.getElementById("newsList").innerHTML = ""; // Clear existing content
-    const initialNews = allNews.slice(0, newsPerLoad);
-    renderNews(initialNews, lang);
-  };
-
-  // Function to load more news
-  const loadMoreNews = (lang = "uz") => {
-    const nextNews = allNews.slice(
-      displayedNewsCount,
-      displayedNewsCount + newsPerLoad
-    );
-    renderNews(nextNews, lang);
+    totalPages = Math.ceil(allNews.length / newsPerPage);
+    currentPage = 1; // Reset to first page
+    updateNewsPage(lang);
   };
 
   // Initial load of news
@@ -699,18 +718,18 @@ const newsJsonUrl = 'News.json';
     loadInitialNews(lang); // Reload news with the new language
   };
 
-  // Event listener for "Load More" button
-  document.getElementById("loadMoreNews").addEventListener("click", () => {
-    loadMoreNews(currentLang);
+  // Event listeners for navigation buttons
+  document.getElementById("newsPrev").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updateNewsPage(currentLang);
+    }
   });
 
-  // Add translations for news section
-  translations.uz.news_title = "Yangiliklar";
-  translations.uz.news_description =
-    "Qurilish sohasidagi so'nggi yangiliklardan xabardor bo'ling.";
-  translations.uz.load_more = "Yana ko'rsatish";
-  translations.ru.news_title = "Новости";
-  translations.ru.news_description =
-    "Будьте в курсе последних новостей в строительной отрасли.";
-  translations.ru.load_more = "Показать еще";
+  document.getElementById("newsNext").addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      updateNewsPage(currentLang);
+    }
+  });
 });

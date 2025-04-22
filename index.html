@@ -665,14 +665,24 @@
     <section class="news-section">
         <div class="container">
             <h2 class="news-section__title" data-key="news_title">Yangiliklar</h2>
-            <p class="news-section__descr" data-key="news_description">
-                Qurilish sohasidagi so'nggi yangiliklardan xabardor bo'ling.
-            </p>
+            <p class="news-section__descr" data-key="news_description">Qurilish sohasidagi so'nggi yangiliklardan
+                xabardor bo'ling.</p>
             <div class="news-section__list" id="newsList"></div>
-            <button class="btn btn--fill news-section__load-more" id="loadMoreNews" style="display: none"
-                data-key="load_more">
-                Yana ko'rsatish
-            </button>
+            <div class="news-section__pagination" id="newsPagination">
+                <button class="slider-nav__btn news-pagination__prev" id="newsPrev" aria-label="Previous page">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="news-pagination__numbers" id="paginationNumbers"></div>
+                <button class="slider-nav__btn news-pagination__next" id="newsNext" aria-label="Next page">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
 
