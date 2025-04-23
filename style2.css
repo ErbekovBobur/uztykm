@@ -479,10 +479,12 @@ ul {
 
 
 /*++++++*/
+
 .hero-section .swiper-button-prev:not(.hero__prev),
 .hero-section .swiper-button-next:not(.hero__next) {
     display: none !important;
     }
+    
 /*------*/
 @keyframes progress {
   from {
