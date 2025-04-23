@@ -553,16 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalPages = 1;
   let newsSwiper;
 
-  // let updateContent = (lang) => {
-  //   document.querySelectorAll("[data-key]").forEach((elem) => {
-  //     const key = elem.getAttribute("data-key");
-  //     if (translations[lang][key]) {
-  //       elem.textContent = translations[lang][key];
-  //     }
-  //   });
-
-
-  // Function to fetch news from the cloud JSON file
+   // Function to fetch news from the cloud JSON file
   const fetchNews = async () => {
     try {
       console.log("Attempting to fetch news from:", newsJsonUrl);
@@ -590,7 +581,7 @@ document.addEventListener("DOMContentLoaded", () => {
       newsWrapper.innerHTML = "<p>Новости не найдены или произошла ошибка при загрузке.</p>";
       return;
     }
-
+/*
     newsToRender.forEach((news) => {
       const newsSlide = document.createElement("div");
       newsSlide.className = "swiper-slide news-slide";
@@ -606,6 +597,39 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       newsWrapper.appendChild(newsSlide);
     });
+*/
+const placeholder = "./placeholder.jpg";
+
+newsToRender.forEach((news) => {
+  const img = new Image();
+  img.src = news.image;
+
+  img.onload = () => {
+    createSlide(news, news.image);
+  };
+
+  img.onerror = () => {
+    createSlide(news, placeholder);
+  };
+});
+
+function createSlide(news, imgSrc) {
+  const newsSlide = document.createElement("div");
+  newsSlide.className = "swiper-slide news-slide fade-in";
+  newsSlide.innerHTML = `
+    <article class="blog-card">
+        <img src="${imgSrc}" alt="${news.title[lang]}" class="blog-card__image" loading="lazy">
+        <div class="blog-card__content">
+            <h3 class="blog-card__title">${news.title[lang]}</h3>
+            <p class="blog-card__date">${news.date}</p>
+            <p class="blog-card__descr">${news.description[lang]}</p>
+        </div>
+    </article>
+  `;
+
+  newsWrapper.appendChild(newsSlide);
+}
+
 
     // Reinitialize or update Swiper after content change
     if (newsSwiper) {
