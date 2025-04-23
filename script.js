@@ -61,32 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const player = new Plyr("#player");
 
-  /*const player = new Plyr("#plyr-video", {*/
-  /* controls: [
-        "play-large",
-        "play",
-        "progress",
-        "current-time",
-        "mute",
-        "volume",
-        "captions",
-        "settings",
-        "fullscreen",
-      ],*/
-  /*controls: [
-      "play-large",
-      "play",
-      "progress",
-      "current-time",
-      "mute",
-      "volume",
-      "captions",
-      "fullscreen",
-    ],
-    settings: ["captions", "quality", "speed"],
-    captions: { active: true, language: "uz", update: true },
-  });*/
-
   // Language Switcher
   const translations = {
     uz: {
@@ -122,10 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Innovatsion yechimlar va zamonaviy texnologiyalar yordamida qurilishning yangi darajasini kashf eting.",
       btn_learn_more: "Biz haqimizda ko'proq bilib oling",
       btn_request: "So'rov yuborish",
-      video_title:
-        "Biz O'ztemiryo'lqurilishmontaj MCHJ qurilish kompaniyasimiz",
-      video_description:
-        "Biz O'zbekistondagi eng yaxshi qurilish kompaniyalaridan biri sifatida tan olinganmiz.",
+      video_title: "Biz O'ztemiryo'lqurilishmontaj MCHJ qurilish kompaniyasimiz",
+      video_description: "Biz O'zbekistondagi eng yaxshi qurilish kompaniyalaridan biri sifatida tan olinganmiz.",
+      gallery_title: "Fotogalereya",
+      gallery_description: "Bizning eng yaxshi loyihalarimizdan olingan suratlarni ko'ring.",
       about_title: "Biz haqimizda",
       about_description:
         "Biz qurilish sohasida 20 yildan ortiq tajribaga ega yetakchi kompaniyamiz. Bizning maqsadimiz mijozlarimizning umidlaridan oshib ketadigan yuqori sifatli loyihalarni yetkazib berishdir.",
@@ -133,43 +107,33 @@ document.addEventListener("DOMContentLoaded", () => {
       about_stat_2: "Bajarilgan loyihalar",
       about_stat_3: "Mamnum mijozlar",
       advantages_title: "Bizning afzalliklarimiz",
-      advantages_description:
-        "Nima uchun qurilish loyihalari uchun bizni tanlashadi, bilib oling.",
+      advantages_description: "Nima uchun qurilish loyihalari uchun bizni tanlashadi, bilib oling.",
       advantage_1_title: "Sifat kafolati",
-      advantage_1_description:
-        "Biz har bir loyihada eng yuqori sifat standartlarini ta'minlaymiz.",
+      advantage_1_description: "Biz har bir loyihada eng yuqori sifat standartlarini ta'minlaymiz.",
       advantage_2_title: "Tajribali jamoa",
-      advantage_2_description:
-        "Bizning jamoamiz ko'p yillik tajribaga ega yuqori malakali mutaxassislardan iborat.",
+      advantage_2_description: "Bizning jamoamiz ko'p yillik tajribaga ega yuqori malakali mutaxassislardan iborat.",
       advantage_3_title: "O'z vaqtida yetkazib berish",
-      advantage_3_description:
-        "Biz loyihalarni har doim o'z vaqtida yetkazib berishga sodiqmiz.",
+      advantage_3_description: "Biz loyihalarni har doim o'z vaqtida yetkazib berishga sodiqmiz.",
       services_title: "Bizning xizmatlarimiz",
       services_description:
         "Biz sizning ehtiyojlaringizni qondirish uchun keng ko'lamli qurilish xizmatlarini taklif qilamiz.",
       service_1_title: "Qurilish",
-      service_1_description:
-        "Turar joy va tijorat loyihalari uchun keng qamrovli qurilish xizmatlari.",
+      service_1_description: "Turar joy va tijorat loyihalari uchun keng qamrovli qurilish xizmatlari.",
       service_2_title: "Loyiha boshqaruvi",
       service_2_description:
         "Loyihani muammosiz amalga oshirish va yetkazib berishni ta'minlash uchun mutaxassis boshqaruv.",
       service_3_title: "Konsultatsiya",
-      service_3_description:
-        "Qurilish sayohatingizda sizga yo'l ko'rsatadigan professional konsultatsiya xizmatlari.",
+      service_3_description: "Qurilish sayohatingizda sizga yo'l ko'rsatadigan professional konsultatsiya xizmatlari.",
       projects_title: "Bizning loyihalarimiz",
-      projects_description:
-        "Yaqinda bajarilgan ba'zi loyihalarimiz bilan tanishing.",
+      projects_description: "Yaqinda bajarilgan ba'zi loyihalarimiz bilan tanishing.",
       project_1_title: "Turar joy majmuasi",
       project_1_description: "Zamonaviy qulayliklarga ega turar joy majmuasi.",
       project_2_title: "Tijorat binosi",
-      project_2_description:
-        "Samaradorlik uchun mo'ljallangan ko'p qavatli tijorat binosi.",
+      project_2_description: "Samaradorlik uchun mo'ljallangan ko'p qavatli tijorat binosi.",
       project_3_title: "Sanoat ob'ekti",
-      project_3_description:
-        "Zamonaviy standartlarga javob beradigan sanoat ob'ekti.",
+      project_3_description: "Zamonaviy standartlarga javob beradigan sanoat ob'ekti.",
       testimonials_title: "Mijozlarimizning fikrlari",
-      testimonials_description:
-        "Biz bilan ishlash haqida mijozlarimiz nima deydi, eshiting.",
+      testimonials_description: "Biz bilan ishlash haqida mijozlarimiz nima deydi, eshiting.",
       testimonial_1_quote:
         "\"O'ztemiryo'lqurilishmontaj jamoasi loyihamizni o'z vaqtida topshirdi va umidlarimizdan oshib ketdi. Juda tavsiya qilaman!\"",
       testimonial_1_author: "John Doe",
@@ -178,33 +142,28 @@ document.addEventListener("DOMContentLoaded", () => {
         '"Ularning tafsilotlarga e\'tibor berishi va professionalligi butun jarayonni muammosiz qildi. Ajoyib ish!"',
       testimonial_2_author: "Jane Smith",
       testimonial_2_position: "XYZ Ltd loyiha menejeri",
-      testimonial_3_quote:
-        '"Biz ish sifati va muddatlarga rioya qilishdan juda mamnunmiz."',
+      testimonial_3_quote: '"Biz ish sifati va muddatlarga rioya qilishdan juda mamnunmiz."',
       testimonial_3_author: "Michael Brown",
       testimonial_3_position: "DEF Inc direktori",
-      blog_title: "So'nggi blog maqolalari",
-      blog_description:
-        "Qurilish sohasidagi so'nggi yangiliklar va maslahatlardan xabardor bo'ling.",
-      blog_1_title: "Zamonaviy qurilish texnologiyalari",
-      blog_1_date: "20 Apr 2025",
-      blog_1_description:
-        "So'nggi qurilish texnologiyalari loyihalarni qanday tezlashtiradi va sifatni oshiradi.",
-      blog_2_title: "Qurilishda xavfsizlik bo'yicha maslahatlar",
-      blog_2_date: "15 Apr 2025",
-      blog_2_description:
-        "Qurilish maydonchasida xavfsizlikni ta'minlash bo'yicha eng yaxshi amaliyotlar.",
-      blog_3_title: "Barqaror qurilishning kelajagi",
-      blog_3_date: "10 Apr 2025",
-      blog_3_description:
-        "Barqaror qurilish usullari qanday qilib sohani o'zgartirmoqda.",
+      // blog_title: "So'nggi blog maqolalari",
+      // blog_description: "Qurilish sohasidagi so'nggi yangiliklar va maslahatlardan xabardor bo'ling.",
+      // blog_1_title: "Zamonaviy qurilish texnologiyalari",
+      // blog_1_date: "20 Apr 2025",
+      // blog_1_description: "So'nggi qurilish texnologiyalari loyihalarni qanday tezlashtiradi va sifatni oshiradi.",
+      // blog_2_title: "Qurilishda xavfsizlik bo'yicha maslahatlar",
+      // blog_2_date: "15 Apr 2025",
+      // blog_2_description: "Qurilish maydonchasida xavfsizlikni ta'minlash bo'yicha eng yaxshi amaliyotlar.",
+      // blog_3_title: "Barqaror qurilishning kelajagi",
+      // blog_3_date: "10 Apr 2025",
+      // blog_3_description: "Barqaror qurilish usullari qanday qilib sohani o'zgartirmoqda.",
       partners_title: "Bizning hamkorlarimiz",
-      footer_description:
-        "Biz O'zbekistonda qurilish sohasida yetakchi kompaniyalardan birimiz.",
+      news_title: "Yangiliklar",
+      news_description: "Qurilish sohasidagi so'nggi yangiliklardan xabardor bo'ling.",
+      footer_description: "Biz O'zbekistonda qurilish sohasida yetakchi kompaniyalardan birimiz.",
       footer_quick_links: "Tez havolalar",
       footer_services: "Xizmatlar",
       footer_contact: "Aloqa",
-      footer_copyright:
-        "© 2025 O'ztemiryo'lqurilishmontaj. Barcha huquqlar himoyalangan.",
+      footer_copyright: "© 2025 O'ztemiryo'lqurilishmontaj. Barcha huquqlar himoyalangan.",
     },
     ru: {
       title: "Узтемирйулкурилишмонтаж",
@@ -233,15 +192,15 @@ document.addEventListener("DOMContentLoaded", () => {
       hero_subtitle: " МЧЖ",
       hero_description_1:
         "Мы предоставляем высококачественные строительные услуги. Реализуйте свои проекты с нашей профессиональной командой.",
-      hero_description_2:
-        "Наша команда опытных специалистов выполнит ваш проект вовремя и с высоким качеством.",
+      hero_description_2: "Наша команда опытных специалистов выполнит ваш проект вовремя и с высоким качеством.",
       hero_description_3:
         "Откройте новый уровень строительства с инновационными решениями и современными технологиями.",
       btn_learn_more: "Узнайте больше о нас",
       btn_request: "Отправить запрос",
       video_title: "Мы — строительная компания Узтемирйулкурилишмонтаж МЧЖ",
-      video_description:
-        "Мы признаны одной из лучших строительных компаний в Узбекистане.",
+      video_description: "Мы признаны одной из лучших строительных компаний в Узбекистане.",
+      gallery_title: "Фотогалерея",
+      gallery_description: "Посмотрите фотографии наших лучших проектов.",
       about_title: "О нас",
       about_description:
         "Мы — ведущая компания с более чем 20-летним опытом в строительной отрасли. Наша цель — поставлять высококачественные проекты, превосходящие ожидания наших клиентов.",
@@ -249,42 +208,31 @@ document.addEventListener("DOMContentLoaded", () => {
       about_stat_2: "Завершенных проектов",
       about_stat_3: "Довольных клиентов",
       advantages_title: "Наши преимущества",
-      advantages_description:
-        "Узнайте, почему нас выбирают для строительных проектов.",
+      advantages_description: "Узнайте, почему нас выбирают для строительных проектов.",
       advantage_1_title: "Гарантия качества",
-      advantage_1_description:
-        "Мы обеспечиваем самые высокие стандарты качества в каждом проекте.",
+      advantage_1_description: "Мы обеспечиваем самые высокие стандарты качества в каждом проекте.",
       advantage_2_title: "Опытная команда",
-      advantage_2_description:
-        "Наша команда состоит из высококвалифицированных специалистов с многолетним опытом.",
+      advantage_2_description: "Наша команда состоит из высококвалифицированных специалистов с многолетним опытом.",
       advantage_3_title: "Своевременная сдача",
       advantage_3_description: "Мы всегда сдаем проекты вовремя.",
       services_title: "Наши услуги",
-      services_description:
-        "Мы предлагаем широкий спектр строительных услуг для удовлетворения ваших потребностей.",
+      services_description: "Мы предлагаем широкий спектр строительных услуг для удовлетворения ваших потребностей.",
       service_1_title: "Строительство",
-      service_1_description:
-        "Комплексные строительные услуги для жилых и коммерческих проектов.",
+      service_1_description: "Комплексные строительные услуги для жилых и коммерческих проектов.",
       service_2_title: "Управление проектами",
-      service_2_description:
-        "Профессиональное управление для бесперебойной реализации и сдачи проекта.",
+      service_2_description: "Профессиональное управление для бесперебойной реализации и сдачи проекта.",
       service_3_title: "Консультации",
-      service_3_description:
-        "Профессиональные консультационные услуги, чтобы направить вас в вашем строительном пути.",
+      service_3_description: "Профессиональные консультационные услуги, чтобы направить вас в вашем строительном пути.",
       projects_title: "Наши проекты",
-      projects_description:
-        "Ознакомьтесь с некоторыми из наших недавно завершенных проектов.",
+      projects_description: "Ознакомьтесь с некоторыми из наших недавно завершенных проектов.",
       project_1_title: "Жилой комплекс",
       project_1_description: "Жилой комплекс с современными удобствами.",
       project_2_title: "Коммерческое здание",
-      project_2_description:
-        "Многоэтажное коммерческое здание, спроектированное для эффективности.",
+      project_2_description: "Многоэтажное коммерческое здание, спроектированное для эффективности.",
       project_3_title: "Промышленный объект",
-      project_3_description:
-        "Промышленный объект, соответствующий современным стандартам.",
+      project_3_description: "Промышленный объект, соответствующий современным стандартам.",
       testimonials_title: "Отзывы наших клиентов",
-      testimonials_description:
-        "Услышьте, что говорят наши клиенты о работе с нами.",
+      testimonials_description: "Услышьте, что говорят наши клиенты о работе с нами.",
       testimonial_1_quote:
         '"Команда Узтемирйулкурилишмонтаж сдала наш проект вовремя и превзошла наши ожидания. Очень рекомендую!"',
       testimonial_1_author: "Джон Доу",
@@ -293,28 +241,24 @@ document.addEventListener("DOMContentLoaded", () => {
         '"Их внимание к деталям и профессионализм сделали весь процесс беспроблемным. Отличная работа!"',
       testimonial_2_author: "Джейн Смит",
       testimonial_2_position: "Менеджер проектов XYZ Ltd",
-      testimonial_3_quote:
-        '"Мы очень довольны качеством работы и соблюдением сроков."',
+      testimonial_3_quote: '"Мы очень довольны качеством работы и соблюдением сроков."',
       testimonial_3_author: "Майкл Браун",
       testimonial_3_position: "Директор DEF Inc",
-      blog_title: "Последние статьи блога",
-      blog_description:
-        "Будьте в курсе последних новостей и советов в строительной отрасли.",
-      blog_1_title: "Современные строительные технологии",
-      blog_1_date: "20 Апр 2025",
-      blog_1_description:
-        "Как новейшие строительные технологии ускоряют проекты и повышают качество.",
-      blog_2_title: "Советы по безопасности в строительстве",
-      blog_2_date: "15 Апр 2025",
-      blog_2_description:
-        "Лучшие практики для обеспечения безопасности на строительной площадке.",
-      blog_3_title: "Будущее устойчивого строительства",
-      blog_3_date: "10 Апр 2025",
-      blog_3_description:
-        "Как методы устойчивого строительства трансформируют отрасль.",
+      // blog_title: "Последние статьи блога",
+      // blog_description: "Будьте в курсе последних новостей и советов в строительной отрасли.",
+      // blog_1_title: "Современные строительные технологии",
+      // blog_1_date: "20 Апр 2025",
+      // blog_1_description: "Как новейшие строительные технологии ускоряют проекты и повышают качество.",
+      // blog_2_title: "Советы по безопасности в строительстве",
+      // blog_2_date: "15 Апр 2025",
+      // blog_2_description: "Лучшие практики для обеспечения безопасности на строительной площадке.",
+      // blog_3_title: "Будущее устойчивого строительства",
+      // blog_3_date: "10 Апр 2025",
+      // blog_3_description: "Как методы устойчивого строительства трансформируют отрасль.",
       partners_title: "Наши партнеры",
-      footer_description:
-        "Мы — одна из ведущих компаний в строительной отрасли Узбекистана.",
+      news_title: "Новости",
+      news_description: "Будьте в курсе последних новостей в сфере строительства.",
+      footer_description: "Мы — одна из ведущих компаний в строительной отрасли Узбекистана.",
       footer_quick_links: "Быстрые ссылки",
       footer_services: "Услуги",
       footer_contact: "Контакты",
@@ -325,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const languageButtons = document.querySelectorAll(".language-btn");
   let currentLang = "uz";
 
-  const updateContent = (lang) => {
+  let updateContent = (lang) => {
     document.querySelectorAll("[data-key]").forEach((elem) => {
       const key = elem.getAttribute("data-key");
       if (translations[lang][key]) {
@@ -377,28 +321,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Переключение раскрывающихся пунктов
-    document
-      .querySelectorAll(".mobile-menu__link--toggle")
-      .forEach((toggle) => {
-        toggle.addEventListener("click", (e) => {
-          e.preventDefault();
+    document.querySelectorAll(".mobile-menu__link--toggle").forEach((toggle) => {
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
 
-          const parent = toggle.parentElement;
-          const expanded = toggle.getAttribute("aria-expanded") === "true";
+        const parent = toggle.parentElement;
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
 
-          parent.classList.toggle("active");
-          toggle.setAttribute("aria-expanded", String(!expanded));
-        });
+        parent.classList.toggle("active");
+        toggle.setAttribute("aria-expanded", String(!expanded));
       });
+    });
 
     // Закрытие меню по клику на пункт подменю (не toggle)
-    document
-      .querySelectorAll(".mobile-menu__dropdown-link")
-      .forEach((subLink) => {
-        subLink.addEventListener("click", () => {
-          closeMobileMenu();
-        });
+    document.querySelectorAll(".mobile-menu__dropdown-link").forEach((subLink) => {
+      subLink.addEventListener("click", () => {
+        closeMobileMenu();
       });
+    });
 
     // Сброс меню при ресайзе
     window.addEventListener("resize", () => {
@@ -417,16 +357,12 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.remove("active");
 
       if (resetSubmenus) {
-        document
-          .querySelectorAll(".mobile-menu__item.active")
-          .forEach((item) => {
-            item.classList.remove("active");
-          });
-        document
-          .querySelectorAll('.mobile-menu__link--toggle[aria-expanded="true"]')
-          .forEach((toggle) => {
-            toggle.setAttribute("aria-expanded", "false");
-          });
+        document.querySelectorAll(".mobile-menu__item.active").forEach((item) => {
+          item.classList.remove("active");
+        });
+        document.querySelectorAll('.mobile-menu__link--toggle[aria-expanded="true"]').forEach((toggle) => {
+          toggle.setAttribute("aria-expanded", "false");
+        });
       }
     }
   }
@@ -475,8 +411,9 @@ document.addEventListener("DOMContentLoaded", () => {
   displayedPhotos.forEach((photo, index) => {
     const slide = document.createElement("div");
     slide.className = "swiper-slide gallery-slide";
-    slide.innerHTML = `<img src="${photo}" alt="Gallery image ${index + 1
-      }" class="gallery-slide__image" data-index="${index}">`;
+    slide.innerHTML = `<img src="${photo}" alt="Gallery image ${
+      index + 1
+    }" class="gallery-slide__image" data-index="${index}">`;
     galleryWrapper.appendChild(slide);
   });
 
@@ -569,8 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const showPrevImage = () => {
-    currentModalIndex =
-      (currentModalIndex - 1 + displayedPhotos.length) % displayedPhotos.length;
+    currentModalIndex = (currentModalIndex - 1 + displayedPhotos.length) % displayedPhotos.length;
     modalImage.src = displayedPhotos[currentModalIndex];
   };
 
@@ -607,26 +543,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Add translations for gallery
-  translations.uz.gallery_title = "Fotogalereya";
-  translations.uz.gallery_description =
-    "Bizning eng yaxshi loyihalarimizdan olingan suratlarni ko'ring.";
-  translations.ru.gallery_title = "Фотогалерея";
-  translations.ru.gallery_description =
-    "Посмотрите фотографии наших лучших проектов.";
-
-  // News section
-
-
-
-/*
-
-  //=============================≠==========
   // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
-  const newsJsonUrl1 =
-    "https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media";
+  const newsJsonUrl = "https://erbekovbobur.github.io/news-json/news.json";
 
-  const newsJsonUrl = 'News.json';
   // Variables for pagination and Swiper
   let allNews = [];
   const newsPerPage = 4;
@@ -634,45 +553,43 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalPages = 1;
   let newsSwiper;
 
-  // Function to fetch news from the cloud JSON file
-  const fetchNews0 = async () => {
-    try {
-      const response = await fetch(newsJsonUrl);
-      if (!response.ok) throw new Error("Failed to fetch news");
-      const data = await response.json();
-      // Sort news by date in descending order
-      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
-    } catch (error) {
-      alert(error);
-      console.error("Error fetching news:", error);
-      return [];
-    }
-  };
+  // let updateContent = (lang) => {
+  //   document.querySelectorAll("[data-key]").forEach((elem) => {
+  //     const key = elem.getAttribute("data-key");
+  //     if (translations[lang][key]) {
+  //       elem.textContent = translations[lang][key];
+  //     }
+  //   });
 
+
+  // Function to fetch news from the cloud JSON file
   const fetchNews = async () => {
     try {
+      console.log("Attempting to fetch news from:", newsJsonUrl);
       const response = await fetch(newsJsonUrl);
       if (!response.ok) {
-        throw new Error(
-          `Failed to fetch news: ${response.status} ${response.statusText}`
-        );
+        throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
       }
       const data = await response.json();
-      alert(data[0].date)
+      console.log("News fetched successfully:", data);
+
       // Sort news by date in descending order
       return data.sort((a, b) => new Date(b.date) - new Date(a.date));
     } catch (error) {
       console.error("Error fetching news:", error.message);
-      return []; // Return empty array to prevent breaking the app
+      return [];
     }
   };
-
-
 
   // Function to render news for the current page
   const renderNews = (newsToRender, lang = "uz") => {
     const newsWrapper = document.getElementById("newsSwiperWrapper");
     newsWrapper.innerHTML = ""; // Clear existing content
+
+    if (newsToRender.length === 0) {
+      newsWrapper.innerHTML = "<p>Новости не найдены или произошла ошибка при загрузке.</p>";
+      return;
+    }
 
     newsToRender.forEach((news) => {
       const newsSlide = document.createElement("div");
@@ -699,8 +616,8 @@ document.addEventListener("DOMContentLoaded", () => {
       slidesPerView: 4,
       spaceBetween: 30,
       navigation: {
-        nextEl: ".news__next",
-        prevEl: ".news__prev",
+        // nextEl: '.news__next',
+        // prevEl: '.news__prev',
       },
       breakpoints: {
         0: {
@@ -720,31 +637,20 @@ document.addEventListener("DOMContentLoaded", () => {
           spaceBetween: 30,
         },
       },
-      on: {
-        init: () => {
-          newsSwiper.update();
-        },
-        resize: () => {
-          newsSwiper.update();
-        },
-      },
     });
   };
 
   // Function to render pagination controls
   const renderPagination = () => {
     const paginationNumbers = document.getElementById("paginationNumbers");
-    const prevButton = document.getElementById("newsPrevPage");
-    const nextButton = document.getElementById("newsNextPage");
+    // const prevButton = document.getElementById('newsPrevPage');
+    // const nextButton = document.getElementById('newsNextPage');
 
-    // Clear existing pagination numbers
     paginationNumbers.innerHTML = "";
 
-    // Generate pagination numbers
     for (let i = 1; i <= totalPages; i++) {
       const pageButton = document.createElement("button");
-      pageButton.className = `news-pagination__number ${i === currentPage ? "active" : ""
-        }`;
+      pageButton.className = `news-pagination__number ${i === currentPage ? "active" : ""}`;
       pageButton.textContent = i;
       pageButton.setAttribute("aria-label", `Page ${i}`);
       pageButton.addEventListener("click", () => {
@@ -754,9 +660,8 @@ document.addEventListener("DOMContentLoaded", () => {
       paginationNumbers.appendChild(pageButton);
     }
 
-    // Enable/disable navigation buttons
-    prevButton.disabled = currentPage === 1;
-    nextButton.disabled = currentPage === totalPages;
+    // prevButton.disabled = currentPage === 1;
+    // nextButton.disabled = currentPage === totalPages;
   };
 
   // Function to update the news page
@@ -768,361 +673,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPagination();
   };
 
-
   // Function to load initial news and set up the section
   const loadInitialNews = async (lang = "uz") => {
-    allNews = await fetchNews();
-    totalPages = Math.ceil(allNews.length / newsPerPage);
-    currentPage = 1; // Reset to first page
-    updateNewsPage(lang);
-  };*/
-
-
-
-  /*
-alert(1)
-  // Initial load of news
-  loadInitialNews(currentLang);
-  // Update news when language changes
-  const originalUpdateContent = updateContent; // Save the original updateContent function
-  updateContent = (lang) => {
-    alert(763);
-    originalUpdateContent(lang); // Call the original function
-    loadInitialNews(lang); // Reload news with the new language
-  };
-  alert(2)
-
-  // Event listeners for pagination navigation buttons
-  document.getElementById("newsPrevPage").addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      updateNewsPage(currentLang);
-    }
-  });
-
-  document.getElementById("newsNextPage").addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      updateNewsPage(currentLang);
-    }
-  });
-  */
- /*
-  (async () => {
-    alert(1);
-
-    try {
-      await loadInitialNews(currentLang);
-      alert('News loaded successfully');
-    } catch (error) {
-      alert('Error loading news: ' + error.message);
-      document.getElementById('newsList').innerHTML = '<p>Error loading news. Please try again later.</p>';
-    }
-
-    // Update news when language changes
-    const originalUpdateContent = updateContent; // Save the original updateContent function
-    updateContent = (lang) => {
-      originalUpdateContent(lang); // Call the original function
-      loadInitialNews(lang); // Reload news with the new language
-    };
-    alert(2);
-
-    // Event listeners for pagination navigation buttons
-    document.getElementById('newsPrevPage').addEventListener('click', () => {
-      if (currentPage > 1) {
-        currentPage--;
-        updateNewsPage(currentLang);
-      }
-    });
-
-    document.getElementById('newsNextPage').addEventListener('click', () => {
-      if (currentPage < totalPages) {
-        currentPage++;
-        updateNewsPage(currentLang);
-      }
-    });
-  })();
-  */
- /*
-  // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
-  const newsJsonUrl0 = 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media';
-
-  // Fallback: define currentLang if it's not already defined
-
-
-  // Variables for pagination and Swiper
-  let allNews = [];
-  const newsPerPage = 4;
-  let currentPage = 1;
-  let totalPages = 1;
-  let newsSwiper;
-
-  // Function to fetch news from the cloud JSON file
-  const fetchNews = async () => {
-    try {
-      const response = await fetch('News.json');
-      if (!response.ok) throw new Error('Failed to fetch news');
-      const data = await response.json();
-
-      // Sort news by date in descending order
-      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
-    } catch (error) {
-      console.error('Error fetching news:', error);
-      return [];
-    }
-  };
-
-  // Function to render news for the current page
-  const renderNews = (newsToRender, lang = 'uz') => {
-    const newsWrapper = document.getElementById('newsSwiperWrapper');
-    newsWrapper.innerHTML = ''; // Clear existing content
-
-    if (newsToRender.length === 0) {
-      newsWrapper.innerHTML = '<p>Новости не найдены или произошла ошибка при загрузке.</p>';
-      return;
-    }
-
-    newsToRender.forEach(news => {
-      const newsSlide = document.createElement('div');
-      newsSlide.className = 'swiper-slide news-slide';
-      newsSlide.innerHTML = `
-            <article class="blog-card">
-                <img src="${news.image}" alt="${news.title[lang]}" class="blog-card__image">
-                <div class="blog-card__content">
-                    <h3 class="blog-card__title">${news.title[lang]}</h3>
-                    <p class="blog-card__date">${news.date}</p>
-                    <p class="blog-card__descr">${news.description[lang]}</p>
-                </div>
-            </article>
-        `;
-      newsWrapper.appendChild(newsSlide);
-    });
-
-    // Reinitialize or update Swiper after content change
-    if (newsSwiper) {
-      newsSwiper.destroy(true, true); // Destroy previous instance
-    }
-
-    newsSwiper = new Swiper('.news-section__list', {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      navigation: {
-        nextEl: '.news__next',
-        prevEl: '.news__prev',
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        },
-        576: {
-          slidesPerView: 2,
-          spaceBetween: 15,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        992: {
-          slidesPerView: 4,
-          spaceBetween: 30,
-        },
-      }
-    });
-  };
-
-  // Function to render pagination controls
-  const renderPagination = () => {
-    const paginationNumbers = document.getElementById('paginationNumbers');
-    const prevButton = document.getElementById('newsPrevPage');
-    const nextButton = document.getElementById('newsNextPage');
-
-    paginationNumbers.innerHTML = '';
-
-    for (let i = 1; i <= totalPages; i++) {
-      const pageButton = document.createElement('button');
-      pageButton.className = `news-pagination__number ${i === currentPage ? 'active' : ''}`;
-      pageButton.textContent = i;
-      pageButton.setAttribute('aria-label', `Page ${i}`);
-      pageButton.addEventListener('click', () => {
-        currentPage = i;
-        updateNewsPage(currentLang);
-      });
-      paginationNumbers.appendChild(pageButton);
-    }
-
-    prevButton.disabled = currentPage === 1;
-    nextButton.disabled = currentPage === totalPages;
-  };
-
-  // Function to update the news page
-  const updateNewsPage = (lang = 'uz') => {
-    const startIndex = (currentPage - 1) * newsPerPage;
-    const endIndex = startIndex + newsPerPage;
-    const newsToRender = allNews.slice(startIndex, endIndex);
-    renderNews(newsToRender, lang);
-    renderPagination();
-  };
-
-  // Function to load initial news and set up the section
-  const loadInitialNews = async (lang = 'uz') => {
-    allNews = await fetchNews();
-    totalPages = Math.ceil(allNews.length / newsPerPage);
-    currentPage = 1;
-    updateNewsPage(lang);
-  };
-
-  // Initial load of news
-  loadInitialNews(currentLang);
-
-  // Safely extend `updateContent` if it exists
-  if (typeof updateContent === 'function') {
-    const originalUpdateContent = updateContent;
-    updateContent = (lang) => {
-      originalUpdateContent(lang);
-      loadInitialNews(lang);
-    };
-  }
-
-  // Pagination buttons
-  document.getElementById('newsPrevPage').addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      updateNewsPage(currentLang);
-    }
-  });
-
-  document.getElementById('newsNextPage').addEventListener('click', () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      updateNewsPage(currentLang);
-    }
-  });
-*/
-  // URL to the JSON file hosted on a cloud service (e.g., Firebase Storage)
-  const newsJsonUrl0 = 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/news.json?alt=media';
-const newsJsonUrl = 'https://erbekovbobur.github.io/news-json/news.json'
-
-  // Variables for pagination and Swiper
-  let allNews = [];
-  const newsPerPage = 4;
-  let currentPage = 1;
-  let totalPages = 1;
-  let newsSwiper;
-
-  // Function to fetch news from the cloud JSON file
-  const fetchNews = async () => {
-    try {
-      console.log('Attempting to fetch news from:', newsJsonUrl);
-      const response = await fetch(newsJsonUrl);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
-      }
-      const data = await response.json();
-      console.log('News fetched successfully:', data);
-
-      // Sort news by date in descending order
-      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
-    } catch (error) {
-      console.error('Error fetching news:', error.message);
-      return [];
-    }
-  };
-
-  // Function to render news for the current page
-  const renderNews = (newsToRender, lang = 'uz') => {
-    const newsWrapper = document.getElementById('newsSwiperWrapper');
-    newsWrapper.innerHTML = ''; // Clear existing content
-
-    if (newsToRender.length === 0) {
-      newsWrapper.innerHTML = '<p>Новости не найдены или произошла ошибка при загрузке.</p>';
-      return;
-    }
-
-    newsToRender.forEach(news => {
-      const newsSlide = document.createElement('div');
-      newsSlide.className = 'swiper-slide news-slide';
-      newsSlide.innerHTML = `
-            <article class="blog-card">
-                <img src="${news.image}" alt="${news.title[lang]}" class="blog-card__image">
-                <div class="blog-card__content">
-                    <h3 class="blog-card__title">${news.title[lang]}</h3>
-                    <p class="blog-card__date">${news.date}</p>
-                    <p class="blog-card__descr">${news.description[lang]}</p>
-                </div>
-            </article>
-        `;
-      newsWrapper.appendChild(newsSlide);
-    });
-
-    // Reinitialize or update Swiper after content change
-    if (newsSwiper) {
-      newsSwiper.destroy(true, true); // Destroy previous instance
-    }
-
-    newsSwiper = new Swiper('.news-section__list', {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      navigation: {
-        nextEl: '.news__next',
-        prevEl: '.news__prev',
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        },
-        576: {
-          slidesPerView: 2,
-          spaceBetween: 15,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        992: {
-          slidesPerView: 4,
-          spaceBetween: 30,
-        },
-      }
-    });
-  };
-
-  // Function to render pagination controls
-  const renderPagination = () => {
-    const paginationNumbers = document.getElementById('paginationNumbers');
-    const prevButton = document.getElementById('newsPrevPage');
-    const nextButton = document.getElementById('newsNextPage');
-
-    paginationNumbers.innerHTML = '';
-
-    for (let i = 1; i <= totalPages; i++) {
-      const pageButton = document.createElement('button');
-      pageButton.className = `news-pagination__number ${i === currentPage ? 'active' : ''}`;
-      pageButton.textContent = i;
-      pageButton.setAttribute('aria-label', `Page ${i}`);
-      pageButton.addEventListener('click', () => {
-        currentPage = i;
-        updateNewsPage(currentLang);
-      });
-      paginationNumbers.appendChild(pageButton);
-    }
-
-    prevButton.disabled = currentPage === 1;
-    nextButton.disabled = currentPage === totalPages;
-  };
-
-  // Function to update the news page
-  const updateNewsPage = (lang = 'uz') => {
-    const startIndex = (currentPage - 1) * newsPerPage;
-    const endIndex = startIndex + newsPerPage;
-    const newsToRender = allNews.slice(startIndex, endIndex);
-    renderNews(newsToRender, lang);
-    renderPagination();
-  };
-
-  // Function to load initial news and set up the section
-  const loadInitialNews = async (lang = 'uz') => {
     allNews = await fetchNews();
     totalPages = Math.ceil(allNews.length / newsPerPage);
     currentPage = 1;
@@ -1134,35 +686,35 @@ const newsJsonUrl = 'https://erbekovbobur.github.io/news-json/news.json'
     try {
       await loadInitialNews(currentLang);
     } catch (error) {
-      console.error('Failed to load initial news:', error.message);
-      const newsWrapper = document.getElementById('newsSwiperWrapper');
-      newsWrapper.innerHTML = '<p>Ошибка загрузки новостей. Пожалуйста, попробуйте позже.</p>';
+      console.error("Failed to load initial news:", error.message);
+      const newsWrapper = document.getElementById("newsSwiperWrapper");
+      newsWrapper.innerHTML = "<p>Ошибка загрузки новостей. Пожалуйста, попробуйте позже.</p>";
     }
 
     // Safely extend `updateContent` if it exists
-    if (typeof updateContent === 'function') {
+    if (typeof updateContent === "function") {
       const originalUpdateContent = updateContent;
-      updateContent = (lang) => {
+      updateContent = async (lang) => {
         originalUpdateContent(lang);
         loadInitialNews(lang);
       };
     } else {
-      console.warn('updateContent function is not defined. Language updates for news will not work.');
+      console.warn("updateContent function is not defined. Language updates for news will not work.");
     }
 
     // Pagination buttons
-    document.getElementById('newsPrevPage').addEventListener('click', () => {
-      if (currentPage > 1) {
-        currentPage--;
-        updateNewsPage(currentLang);
-      }
-    });
+    // document.getElementById('newsPrevPage').addEventListener('click', () => {
+    //   if (currentPage > 1) {
+    //     currentPage--;
+    //     updateNewsPage(currentLang);
+    //   }
+    // });
 
-    document.getElementById('newsNextPage').addEventListener('click', () => {
-      if (currentPage < totalPages) {
-        currentPage++;
-        updateNewsPage(currentLang);
-      }
-    });
+    // document.getElementById('newsNextPage').addEventListener('click', () => {
+    //   if (currentPage < totalPages) {
+    //     currentPage++;
+    //     updateNewsPage(currentLang);
+    //   }
+    // });
   })();
 });

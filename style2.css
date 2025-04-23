@@ -1243,6 +1243,7 @@ ul {
 /*++++±+++*/
 
 .news-section__pagination {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1708,8 +1709,8 @@ ul {
     text-align: center;
   }
 
-  .hero__btns {
-    align-items: center;
+  .hero__btns {    
+    align-items: center;    
   }
 
   /*Gallery*/
